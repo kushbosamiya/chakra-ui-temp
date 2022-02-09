@@ -5,95 +5,97 @@ import {
     Box,
     Heading,
     Text,
+    Button, Collapse
 
 } from "@chakra-ui/react";
-import DoctorIllustration from "./Assets/herosection/doctor-illustration.svg";
-import DoctorIllustration2 from "./Assets/herosection/doctor-svg.webp";
-import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
+
+// import DoctorIllustration from "./Assets/herosection/Doctor_Monochromatic.svg"
+import DoctorGif from "./Assets/herosection/Gynecology consultation.gif"
+
+// import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
 
 const HeroSectionContainer = () => {
     return (
         <>
-            <Grid templateRows="5% 90% 5%" background="#F1F5FB">
-                {/* 1st row */}
-                <GridItem gridRow="1/2"></GridItem>
-                {/* 2nd row */}
-                <GridItem gridRow="2/3">
-                    {/* 2nd row colums */}
-                    <Grid templateColumns="5% 90% 5%">
-                        {/* 2nd row  1st columns */}
-                        <GridItem></GridItem>
-                        {/* 2nd row  2nd columns */}
-                        <GridItem bg="white">
-                            <Grid templateColumns="50% 50%" columnGap="1rem" m="1rem" pt="1rem" p=".5rem">
-                                {/* 2nd row  2nd columns 1 part 50% */}
-                                <GridItem gridColumn="1/2">
-                                    <Grid
-                                        templateRows="5% 90% 5%"
-                                        gridRowGap="1rem"
-                                        placeItems="center"
-                                    >
-                                        {/* 1st */}
-                                        <GridItem border="1px solid" gridRow="1/2">
-                                          
-                                        </GridItem>
-                                        {/* 2nd */}
-                                        <Grid
-                                            templateRows="1fr 1fr"
-                                            rowGap=".5rem"
-                                            textAlign="center"
-                                        >
-                                            {/* heading */}
-                                            <GridItem  gridRow="1/2">
-                                                <Heading fontSize="2.5rem" w="95%" textAlign="center" textColor="#3C64B1">
-                                                    We're determines for your better life.
-                                                </Heading>
-                                            </GridItem>
-                                            {/* text */}
-                                            <GridItem
-                                                
-                                                alignSelf="center"
-                                                gridRow="2/3"
-                                            >
-                                                <Text
-                                                    w="95%"
-                                                    color="#7D7987"
-                                                    lineHeight="2rem"
-                                                    fontSize="1rem"
-                                                >
-                                                    You can get the care you need 24/7 – be it online or
-                                                    in person. You will be treated by caring specialist
-                                                    doctors.
-                                                </Text>
-                                            </GridItem>
-                                        </Grid>
-                                        {/* 3rd row */}
-                                        <GridItem  gridRow="3/4" w="100%"  p="1rem" textAlign="center">
-                                            <Box as="a" cursor="pointer" bg="#3C64B1" p="8" color="white"  w="50%" d="inline-block" textAlign="center" borderRadius="55px" >Consult</Box>
-                                        </GridItem>
-                                    </Grid>
-                                </GridItem>
-                                {/* 2nd row  2nd columns 2 part 50% */}
-                                <GridItem gridColumn="2/3">
-                                    <Box>
-                                        <Image maxW="100%" src={DoctorIllustration} />
-                                        {/* <Image 
-                            maxW="100%" src={DoctorIllustration2} /> */}
-                                    </Box>
-                                </GridItem>
-                            </Grid>
-                        </GridItem>
-                        {/* 2nd row  3rd columns */}
-                        <GridItem></GridItem>
-                    </Grid>
-                </GridItem>
-                {/* 2nd row ends */}
+            <Grid templateColumns="1fr" background="#F2FCF7" p="1rem">
 
-                {/* 3rd row */}
-                <GridItem gridRow="3/4"></GridItem>
+
+                <HeroBody />
+
+
             </Grid>
         </>
     );
 };
 
 export default HeroSectionContainer;
+
+
+
+
+
+
+const HeroBody = () => {
+    return <>
+        {/* center */}
+        <Grid templateColumns="50% 50%" bg="white" borderRadius="1rem"  border="1px solid #8c8c8c" >
+
+            {/* 2nd 45% column */}
+            <GridItem gridColumn="1/2" justifySelf="center" p="1rem" alignSelf="center" >
+                <Grid gridRow="1fr 1fr 1fr" rowGap="2rem" >
+                    {/* headline */}
+                    <GridItem gridRow="1/2">
+                        <Box fontSize="3rem" fontWeight="900" color="#009859">
+
+                            Need consulatation ? we
+                        </Box>
+                        <Box fontSize="3rem" fontWeight="900" color="#009859">
+
+                            are ready for you anytime
+                        </Box>
+                    </GridItem>
+                    {/* description */}
+                    <GridItem gridRow="2/3">
+                        <Box fontSize="2rem" color="#8c8c8c" fontWeight="700"
+
+                            fontStyle="italic">
+                            ‟Consult with specialist doctors
+                        </Box>
+                        <Box fontSize="2rem" color="#8c8c8c" fontWeight="700"
+                            fontStyle="italic">
+                            securely And privately
+                        </Box>
+
+                    </GridItem>
+                    {/* button */}
+                    <GridItem gridRow="3/4">
+
+                        <Button bg='#009959'
+                            cursor="pointer"
+                            color="#f2fcf7" border="none"
+                            outline="none" fontSize="1.5rem" fontWeight="600" p="1rem" borderRadius="1rem"
+                            boxShadow=" rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
+                        >
+                            Consult Now
+                        </Button>
+
+
+
+                    </GridItem>
+                </Grid>
+            </GridItem>
+            {/* 3rd 45% column */}
+            <GridItem gridColumn="2/3" justifySelf="center" p="1rem" >
+                {/* illustration */}
+                <Box border="6px dashed lightgray">
+                    <Image src={DoctorGif} />
+                </Box>
+            </GridItem>
+
+        </Grid>
+    </>;
+};
+
+
+
+

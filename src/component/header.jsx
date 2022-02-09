@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Grid, GridItem, Image, Flex } from "@chakra-ui/react"
+import { Box, Text, Grid, GridItem, Image, Flex,Divider } from "@chakra-ui/react"
 
 import Hamburger from 'hamburger-react'
 import Logo from "./Assets/NavBar/logo_icon.svg"
@@ -38,13 +38,14 @@ const NavBarContainer = () => {
   return (
     <Grid
       as="nav"
+      fontWeight="900"
       // justify="space-between"
-      // wrap="wrap"
+      wrap="wrap"
       textAlign="center"
-      background="#F1F5FB"
+      background="#F2FCF7"
       templateColumns="5% 20% 60% 10% 5%"
-      borderBottom="1px solid"
-      p="1.25rem"
+      // borderBottom="1px solid gray"
+      p="1rem"
       
 
     >
@@ -58,6 +59,8 @@ const NavBarContainer = () => {
 
       <WhiteSpace />
       <Avatar />
+      <Divider w="80vw" borderColor="black" my="5" />
+      
 
 
 
@@ -77,7 +80,7 @@ const MenuToggle = () => {
       <GridItem
       cursor="pointer"
       gridColumn="1/2">
-        <Hamburger size="20" />
+        <Hamburger color='#1d5527' size="30" />
       </GridItem>
     </Grid>
 
@@ -121,7 +124,7 @@ const NavItems = () => {
 
               src={Home}
             />
-            <Text fontWeight="600">Home</Text>
+            <Text fontWeight="600" color="black">Home</Text>
           </Box>
 
 
@@ -141,7 +144,7 @@ const NavItems = () => {
 
               src={Consult}
             />
-            <Text fontWeight="600">Consult</Text>
+            <Text fontWeight="600" color="black">Consult</Text>
           </Box>
 
 
@@ -163,7 +166,7 @@ const NavItems = () => {
 
               src={Capsule}
             />
-            <Text fontWeight="600">Consult</Text>
+            <Text fontWeight="600" color="black">Consult</Text>
           </Box>
 
 
@@ -183,7 +186,7 @@ const NavItems = () => {
 
               src={Scientist}
             />
-            <Text fontWeight="600">Diagnose</Text>
+            <Text fontWeight="600" color="black">Diagnose</Text>
           </Box>
 
 
@@ -203,7 +206,7 @@ const NavItems = () => {
 
               src={BlogIcon}
             />
-            <Text fontWeight="600">Blog</Text>
+            <Text fontWeight="600" color="black">Blog</Text>
           </Box>
 
 
@@ -232,7 +235,7 @@ const Avatar = () => {
           h="36px"
           src={AvatarIcon}
         />
-        <Text fontWeight="500">Login</Text>
+        <Text fontWeight="600" color="black">Login</Text>
       </GridItem>
     </Grid>
 
