@@ -42,7 +42,7 @@ const NavBarContainer = () => {
       // justify="space-between"
       wrap="wrap"
       textAlign="center"
-      background="#F2FCF7"
+      background="#e9f8f3"
       templateColumns="5% 20% 60% 10% 5%"
       // borderBottom="1px solid gray"
       p="1rem"
@@ -59,7 +59,7 @@ const NavBarContainer = () => {
 
       <WhiteSpace />
       <Avatar />
-      <Divider w="80vw" borderColor="black" my="5" />
+      <Divider w="80vw" borderColor="#059b5c" my="5" />
       
 
 
@@ -80,7 +80,7 @@ const MenuToggle = () => {
       <GridItem
       cursor="pointer"
       gridColumn="1/2">
-        <Hamburger color='#1d5527' size="30" />
+        <Hamburger color='#059b5c' size="30" />
       </GridItem>
     </Grid>
 
@@ -124,7 +124,7 @@ const NavItems = () => {
 
               src={Home}
             />
-            <Text fontWeight="600" color="black">Home</Text>
+            <Text fontWeight="600" color="#059b5c">Home</Text>
           </Box>
 
 
@@ -144,7 +144,7 @@ const NavItems = () => {
 
               src={Consult}
             />
-            <Text fontWeight="600" color="black">Consult</Text>
+            <Text fontWeight="600" color="#059b5c">Consult</Text>
           </Box>
 
 
@@ -166,7 +166,7 @@ const NavItems = () => {
 
               src={Capsule}
             />
-            <Text fontWeight="600" color="black">Consult</Text>
+            <Text fontWeight="600" color="#059b5c">Consult</Text>
           </Box>
 
 
@@ -186,7 +186,7 @@ const NavItems = () => {
 
               src={Scientist}
             />
-            <Text fontWeight="600" color="black">Diagnose</Text>
+            <Text fontWeight="600" color="#059b5c">Diagnose</Text>
           </Box>
 
 
@@ -206,7 +206,7 @@ const NavItems = () => {
 
               src={BlogIcon}
             />
-            <Text fontWeight="600" color="black">Blog</Text>
+            <Text fontWeight="600" color="#059b5c">Blog</Text>
           </Box>
 
 
@@ -235,7 +235,7 @@ const Avatar = () => {
           h="36px"
           src={AvatarIcon}
         />
-        <Text fontWeight="600" color="black">Login</Text>
+        <Text fontWeight="600" color="#059b5c">Login</Text>
       </GridItem>
     </Grid>
 

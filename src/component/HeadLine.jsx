@@ -4,7 +4,7 @@ import React from 'react';
 const HeadLine = () => {
   return <>
   <Grid templateRows="1fr" textAlign="center" >
-      <GridItem bg="#F2FCF7" p="1rem" fontSize="2rem" fontWeight="700" color="#8c8c8c" >
+      <GridItem bg="#e9f8f3" p="1rem" fontSize="2rem" fontWeight="700" color="#8c8c8c" >
           Consult with top doctors across various treatments and specialities
           </GridItem>
       </Grid>
