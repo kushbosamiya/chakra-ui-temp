@@ -12,9 +12,12 @@
     "@emotion/styled": "latest",
     "framer-motion": "latest",
     "hamburger-react": "^2.4.1",
+    "hover.css": "^2.3.2",
     "react": "17.0.1",
+    "react-custom-radio-buttons-group": "^1.0.5",
     "react-dom": "17.0.1",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0"
   },
   "devDependencies": {

@@ -1,17 +1,22 @@
 import React from "react";
 import { Grid, GridItem, Text, Image, Box, Center } from "@chakra-ui/react";
-import AllopathicIcon from "./Assets/TreatmentSection/AlloGreen.svg";
-import AyurvedicIcon from "./Assets/TreatmentSection/Ayur_Green.svg";
-import HomeopathyIcon from "./Assets/TreatmentSection/Homeo_Green.svg";
-import ChildIcon from "./Assets/TreatmentSection/child-green.svg";
-import Labtest from "./Assets/TreatmentSection/lab-green.svg";
-import WashBottle from "./Assets/TreatmentSection/wash-green.svg";
+import AllopathicIcon from "./Assets/TreatmentSection/new_treatment_icon-1.svg";
+import AyurvedicIcon from "./Assets/TreatmentSection/new_treatment_icon-2.svg";
+import HomeopathyIcon from "./Assets/TreatmentSection/new_treatment_icon-3.svg";
+import ChildIcon from "./Assets/TreatmentSection/new_treatment_icon-4.svg";
+// import Labtest from "./Assets/TreatmentSection/new_treatment_icon-5.svg";
+import WashBottle from "./Assets/TreatmentSection/new_treatment_icon-5.svg";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
+
+
+// consult section ma left align krva nu chhe ane aakho regular arrow nakhva nu chhe 
 const TreatmentSection = () => {
   return (
     <>
-      <Grid templateRows="1fr" p="1rem" bg="#e9f8f3">
+      <Grid templateRows="1fr" p="1rem" 
+      // bg="#e9f8f3"
+      >
         {/* <AllopathicTreatment /> */}
         <Treatments />
       </Grid>

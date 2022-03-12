@@ -12,7 +12,9 @@ import ArrowRight from "./Assets/DiseaseSection/arrow-right.svg";
 const DiseaseSection = () => {
   return (
     <>
-      <Grid templateRows="1fr 1fr" p="1rem" bg="#e9f8f3" placeItems="center">
+      <Grid templateRows="1fr 1fr" p="1rem" 
+      // bg="#e9f8f3"
+       placeItems="center" rowGap="1rem">
         <DiseaseFirstColumn />
       </Grid>
     </>
@@ -25,8 +27,9 @@ const DiseaseFirstColumn = () => {
   return (
     <>
       <Grid
-        templateColumns="150px 150px 150px 150px 150px"
-        h="150px"
+        templateColumns="180px 180px 180px 180px 180px"
+        h="120px" w="120px"
+        justifyContent="center"
         columnGap="4rem"
         textAlign="center"
       >
@@ -38,6 +41,7 @@ const DiseaseFirstColumn = () => {
           borderRadius="1rem"
           boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;"
           placeItems="center"
+          
         >
           <GridItem>
             <Image src={Neurology} w="56px" h="56px" />
@@ -116,7 +120,7 @@ const DiseaseFirstColumn = () => {
 
 
       {/* 2nd row */}
-      <Grid templateColumns="150px 150px 150px" p="1rem" columnGap="4rem">
+      <Grid templateColumns="180px 180px 180px" p="1rem" columnGap="4rem">
         {/* 6th component ENT	 */}
         <Grid
           templateRows="1fr 1fr"

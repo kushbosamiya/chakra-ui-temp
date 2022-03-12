@@ -1,14 +1,20 @@
 <svg width="155" height="136" viewBox="0 0 155 136" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="155" height="136" rx="18" fill="#059B5C"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M70 68C70 67.8674 70.0527 67.7402 70.1464 67.6465C70.2402 67.5527 70.3674 67.5 70.5 67.5H82.293L79.146 64.354C79.0521 64.2601 78.9994 64.1328 78.9994 64C78.9994 63.8672 79.0521 63.7399 79.146 63.646C79.2399 63.5521 79.3672 63.4994 79.5 63.4994C79.6328 63.4994 79.7601 63.5521 79.854 63.646L83.854 67.646C83.9006 67.6925 83.9375 67.7476 83.9627 67.8084C83.9879 67.8691 84.0009 67.9343 84.0009 68C84.0009 68.0658 83.9879 68.1309 83.9627 68.1917C83.9375 68.2524 83.9006 68.3076 83.854 68.354L79.854 72.354C79.7601 72.4479 79.6328 72.5007 79.5 72.5007C79.3672 72.5007 79.2399 72.4479 79.146 72.354C79.0521 72.2601 78.9994 72.1328 78.9994 72C78.9994 71.8672 79.0521 71.7399 79.146 71.646L82.293 68.5H70.5C70.3674 68.5 70.2402 68.4473 70.1464 68.3536C70.0527 68.2598 70 68.1326 70 68Z" fill="#DEF6E5"/>
+<rect width="155" height="136" rx="18" fill="#DEF6E5"/>
 <rect x="49" y="40" width="56" height="56" rx="12" fill="white"/>
 <mask id="mask0_147_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="53" y="44" width="48" height="48">
 <mask id="mask1_147_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="53" y="44" width="48" height="48">
 <mask id="mask2_147_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="53" y="44" width="48" height="48">
 <mask id="mask3_147_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="53" y="44" width="48" height="48">
+<mask id="mask4_147_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="53" y="44" width="48" height="48">
 <rect x="53" y="44" width="48" height="48" fill="url(#pattern0)"/>
 </mask>
-<g mask="url(#mask3_147_50)">
+<g mask="url(#mask4_147_50)">
 <rect x="49.1081" y="39.7646" width="51.8919" height="55.0588" fill="#68EEBE"/>
+</g>
+</mask>
+<g mask="url(#mask3_147_50)">
+<rect x="53" y="44" width="48" height="48" fill="#059B5C"/>
 </g>
 </mask>
 <g mask="url(#mask2_147_50)">
@@ -16,7 +22,7 @@
 </g>
 </mask>
 <g mask="url(#mask1_147_50)">
-<rect x="53" y="44" width="48" height="48" fill="#059B5C"/>
+<rect x="53" y="44" width="48" height="48" fill="#DEF6E5"/>
 </g>
 </mask>
 <g mask="url(#mask0_147_50)">

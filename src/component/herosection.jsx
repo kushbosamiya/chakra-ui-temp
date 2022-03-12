@@ -17,7 +17,11 @@ import DoctorGif from "./Assets/herosection/Medicine.gif";
 const HeroSectionContainer = () => {
   return (
     <>
-      <Grid templateColumns="1fr" background="#e9f8f3" p="1rem">
+      <Grid
+        templateColumns="1fr"
+        // background="#e9f8f3"
+        p="1rem"
+      >
         <HeroBody />
       </Grid>
     </>
@@ -34,7 +38,7 @@ const HeroBody = () => {
         templateColumns="60% 40%"
         bg="white"
         borderRadius="1rem"
-        border="1px solid #8c8c8c"
+        boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
       >
         {/* 1st 70% column */}
         <GridItem gridColumn="1/2" justifySelf="center" alignSelf="center">
@@ -42,7 +46,7 @@ const HeroBody = () => {
             {/* headline */}
             <GridItem gridRow="1/2">
               <Box
-                fontSize="3rem"
+                fontSize="2.5rem"
                 fontWeight="900"
                 color="
 #059b5c"
@@ -50,7 +54,7 @@ const HeroBody = () => {
                 Need consulatation ? we
               </Box>
               <Box
-                fontSize="3rem"
+                fontSize="2.5rem"
                 fontWeight="900"
                 color="
 #059b5c"
@@ -61,7 +65,7 @@ const HeroBody = () => {
             {/* description */}
             <GridItem gridRow="2/3">
               <Box
-                fontSize="2rem"
+                fontSize="1.5rem"
                 color="#8c8c8c"
                 fontWeight="700"
                 fontStyle="italic"
@@ -69,7 +73,7 @@ const HeroBody = () => {
                 ‟Consult with specialist doctors
               </Box>
               <Box
-                fontSize="2rem"
+                fontSize="1.5rem"
                 color="#8c8c8c"
                 fontWeight="700"
                 fontStyle="italic"
@@ -86,10 +90,10 @@ const HeroBody = () => {
                 color="#f2fcf7"
                 border="none"
                 outline="none"
-                fontSize="1.5rem"
+                fontSize="1rem"
                 fontWeight="600"
                 p="1rem"
-                borderRadius="1rem"
+                borderRadius=".5rem"
                 boxShadow="rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;"
               >
                 Consult Now

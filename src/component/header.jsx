@@ -41,8 +41,8 @@ const NavBarContainer = () => {
       fontWeight="900"
       // justify="space-between"
       wrap="wrap"
-      textAlign="center"
-      background="#e9f8f3"
+      // textAlign="center"
+      // background="#e9f8f3"
       templateColumns="5% 20% 60% 10% 5%"
       // borderBottom="1px solid gray"
       p="1rem"
@@ -52,14 +52,16 @@ const NavBarContainer = () => {
       <MenuToggle />
       <Logo_Component />
 
-      <Box textAlign="center">
+      {/* <Box 
+      // textAlign="center"
+      > */}
 
       <NavItems />
-      </Box>
+      {/* </Box> */}
 
       <WhiteSpace />
       <Avatar />
-      <Divider w="80vw" borderColor="#059b5c" my="5" />
+    
       
 
 
@@ -93,12 +95,9 @@ const Logo_Component = () => {
   return <>
     <Grid templateColumns="1fr"
       placeItems="center" >
-      <GridItem 
-      cursor="pointer"
-      gridColumn="1/2" placeSelf="center" >
-        <Image h="32px"
-          src={Logo} />
-      </GridItem>
+       <GridItem fontSize="1.5rem" fontWeight="800" color="#059b5c">
+            • Swasthya Setu •
+          </GridItem>
     </Grid>
   </>;
 };
@@ -109,64 +108,61 @@ const NavItems = () => {
   return <>
 
 
-    <Grid templateColumns="20% 20% 20% 20% 20%" gap=".5rem" justifyContent="space-around">
+    <Grid templateColumns="20% 20% 20% 20% 20%" 
+    placeItems="center"
+    //  justifyContent="space-around" alignItems="center"
+     >
 
-      <GridItem gridColumn="1/2" placeSelf="center"
-      cursor="pointer"
+      <GridItem gridColumn="1/2" 
+      
       >
         {/* Home icon */}
-        <Box d="flex" alignItems="center" gap="1rem" >
+        {/* <Box d="flex" alignItems="center" gap=".5rem" alignItems="center" > */}
 
           <Box
           cursor="pointer"
           >
-            <Image h="28px"
-
-              src={Home}
-            />
+            
             <Text fontWeight="600" color="#059b5c">Home</Text>
           </Box>
 
 
 
-        </Box>
+        {/* </Box> */}
       </GridItem>
 
 
-      <GridItem gridColumn="2/3" placeSelf="center"   >
+      <GridItem gridColumn="2/3"    >
         {/* Consult icon */}
-        <Box d="flex" alignItems="center" gap="1rem" >
+        
 
           <Box
           cursor="pointer"
           >
-            <Image h="28px"
-
-              src={Consult}
-            />
+            
             <Text fontWeight="600" color="#059b5c">Consult</Text>
           </Box>
 
 
 
-        </Box>
+        
       </GridItem>
 
 
-      <GridItem gridColumn="3/4" placeSelf="center"  >
+      <GridItem gridColumn="3/4"   >
         {/* Pharmacy icon */}
-        <Box d="flex" alignItems="center" gap="1rem"
+        <Box d="flex" alignItems="center" gap=".5rem"
         
         >
 
           <Box
           cursor="pointer"
           >
-            <Image h="28px"
+            {/* <Image h="28px"
 
               src={Capsule}
-            />
-            <Text fontWeight="600" color="#059b5c">Consult</Text>
+            /> */}
+            <Text fontWeight="600" color="#059b5c">Pharmacy</Text>
           </Box>
 
 
@@ -175,43 +171,43 @@ const NavItems = () => {
       </GridItem>
 
 
-      <GridItem gridColumn="4/5" placeSelf="center"   >
+      <GridItem gridColumn="4/5"    >
         {/* Diagnostic icon */}
-        <Box d="flex" alignItems="center" gap="1rem" >
+        
 
           <Box
           cursor="pointer"
           >
-            <Image h="28px"
+            {/* <Image h="28px"
 
               src={Scientist}
-            />
+            /> */}
             <Text fontWeight="600" color="#059b5c">Diagnose</Text>
           </Box>
 
 
 
-        </Box>
+        
       </GridItem>
 
-      <GridItem gridColumn="5/6" placeSelf="center"  >
+      <GridItem gridColumn="5/6"   >
         {/* Blog icon */}
-        <Box d="flex" alignItems="center" gap="1rem" >
+        
 
           <Box
           
           cursor="pointer"
           >
-            <Image h="28px"
+            {/* <Image h="28px"
 
               src={BlogIcon}
-            />
+            /> */}
             <Text fontWeight="600" color="#059b5c">Blog</Text>
           </Box>
 
 
 
-        </Box>
+        
       </GridItem>
 
     </Grid>
@@ -230,11 +226,11 @@ const Avatar = () => {
   return <>
     <Grid templateColumns="1fr"
       placeItems="center" >
-      <GridItem gridColumn="1/2" placeSelf="center" cursor="pointer" >
-        <Image
+      <GridItem gridColumn="1/2"  cursor="pointer" >
+      {/*  <Image
           h="36px"
           src={AvatarIcon}
-        />
+        /> */}
         <Text fontWeight="600" color="#059b5c">Login</Text>
       </GridItem>
     </Grid>
@@ -250,7 +246,7 @@ const WhiteSpace = () => {
   return <>
     <Grid templateColumns="1fr"
       placeItems="center" >
-      <GridItem gridColumn="1/2" placeSelf="center" >
+      <GridItem gridColumn="1/2"  >
 
       </GridItem>
     </Grid>
