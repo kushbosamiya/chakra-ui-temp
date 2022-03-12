@@ -9,8 +9,8 @@ import {
   HStack,
 
 } from "@chakra-ui/react";
-import MaleIcon from "./Assets/ConsultSection/Male.svg";
-import FemaleIcon from "./Assets/ConsultSection/Female.svg";
+import MaleIcon from "../Assets/ConsultSection/Male.svg";
+import FemaleIcon from "../Assets/ConsultSection/Female.svg";
 
 const ConsultSection = () => {
   return (

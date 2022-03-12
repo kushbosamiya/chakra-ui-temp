@@ -2,17 +2,17 @@ import React from 'react';
 import { Box, Text, Grid, GridItem, Image, Flex,Divider } from "@chakra-ui/react"
 
 import Hamburger from 'hamburger-react'
-import Logo from "./Assets/NavBar/logo_icon.svg"
-import AvatarIcon from "./Assets/NavBar/avatar-2.svg"
-import Home from "./Assets/NavBar/Home-icon-2.svg"
-import Consult from "./Assets/NavBar/Consult-icon.svg"
-import Capsule from "./Assets/NavBar/capsule-icon.svg"
-import Scientist from "./Assets/NavBar/scientist-man-icon.svg"
-import BlogIcon from "./Assets/NavBar/blogger-icon.svg"
+import Logo from "../Assets/NavBar/logo_icon.svg"
+import AvatarIcon from "../Assets/NavBar/avatar-2.svg"
+import Home from "../Assets/NavBar/Home-icon-2.svg"
+import Consult from "../Assets/NavBar/Consult-icon.svg"
+import Capsule from "../Assets/NavBar/capsule-icon.svg"
+import Scientist from "../Assets/NavBar/scientist-man-icon.svg"
+import BlogIcon from "../Assets/NavBar/blogger-icon.svg"
 
 
 
-import "../styles.css"
+// import "./src/styles.css"
 
 const NavLinks = () => {
 

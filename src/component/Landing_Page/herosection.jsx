@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 // import DoctorIllustration from "./Assets/herosection/Doctor_Monochromatic.svg"
-import DoctorGif from "./Assets/herosection/Medicine.gif";
+import DoctorGif from "../Assets/herosection/Medicine.gif";
 
 // import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
 

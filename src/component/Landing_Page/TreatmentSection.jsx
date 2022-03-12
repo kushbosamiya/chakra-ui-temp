@@ -1,11 +1,11 @@
 import React from "react";
 import { Grid, GridItem, Text, Image, Box, Center } from "@chakra-ui/react";
-import AllopathicIcon from "./Assets/TreatmentSection/new_treatment_icon-1.svg";
-import AyurvedicIcon from "./Assets/TreatmentSection/new_treatment_icon-2.svg";
-import HomeopathyIcon from "./Assets/TreatmentSection/new_treatment_icon-3.svg";
-import ChildIcon from "./Assets/TreatmentSection/new_treatment_icon-4.svg";
+import AllopathicIcon from "../Assets/TreatmentSection/new_treatment_icon-1.svg";
+import AyurvedicIcon from "../Assets/TreatmentSection/new_treatment_icon-2.svg";
+import HomeopathyIcon from "../Assets/TreatmentSection/new_treatment_icon-3.svg";
+import ChildIcon from "../Assets/TreatmentSection/new_treatment_icon-4.svg";
 // import Labtest from "./Assets/TreatmentSection/new_treatment_icon-5.svg";
-import WashBottle from "./Assets/TreatmentSection/new_treatment_icon-5.svg";
+import WashBottle from "../Assets/TreatmentSection/new_treatment_icon-5.svg";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { Grid, GridItem, Box, Text, Image, Heading } from "@chakra-ui/react";
-import Facebook from "./Assets/Footer/Social-Icons/facebook.svg";
-import Instagram from "./Assets/Footer/Social-Icons/instagram.svg";
-import Twitter from "./Assets/Footer/Social-Icons/twitter.svg";
-import WhatsApp from "./Assets/Footer/Social-Icons/whatsapp.svg";
-import Discord from "./Assets/Footer/Social-Icons/discord.svg";
-import Github from "./Assets/Footer/Social-Icons/github.svg";
-import Logo from "./Assets/NavBar/logo_icon.svg";
+import Facebook from "../Assets/Footer/Social-Icons/facebook.svg";
+import Instagram from "../Assets/Footer/Social-Icons/instagram.svg";
+import Twitter from "../Assets/Footer/Social-Icons/twitter.svg";
+import WhatsApp from "../Assets/Footer/Social-Icons/whatsapp.svg";
+import Discord from "../Assets/Footer/Social-Icons/discord.svg";
+import Github from "../Assets/Footer/Social-Icons/github.svg";
+// import Logo from "./Assets/NavBar/logo_icon.svg";
 import "./FooterSection.css";
 
 const Footer = () => {

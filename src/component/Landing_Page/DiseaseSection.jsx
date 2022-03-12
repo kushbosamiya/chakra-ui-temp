@@ -1,13 +1,13 @@
 import React from "react";
 import { Grid, GridItem, Image, Text } from "@chakra-ui/react";
-import Neurology from "./Assets/DiseaseSection/Group-1.svg";
-import Cardiology from "./Assets/DiseaseSection/Group-2.svg";
-import Dermatology from "./Assets/DiseaseSection/Group-3.svg";
-import General_Practitioner from "./Assets/DiseaseSection/Group-4.svg";
-import Gynecology from "./Assets/DiseaseSection/Group-5.svg";
-import Ent from "./Assets/DiseaseSection/Group-6.svg";
-import Gastroenterol from "./Assets/DiseaseSection/Group.svg";
-import ArrowRight from "./Assets/DiseaseSection/arrow-right.svg";
+import Neurology from "../Assets/DiseaseSection/Group-1.svg";
+import Cardiology from "../Assets/DiseaseSection/Group-2.svg";
+import Dermatology from "../Assets/DiseaseSection/Group-3.svg";
+import General_Practitioner from "../Assets/DiseaseSection/Group-4.svg";
+import Gynecology from "../Assets/DiseaseSection/Group-5.svg";
+import Ent from "../Assets/DiseaseSection/Group-6.svg";
+import Gastroenterol from "../Assets/DiseaseSection/Group.svg";
+import ArrowRight from "../Assets/DiseaseSection/arrow-right.svg";
 
 const DiseaseSection = () => {
   return (
