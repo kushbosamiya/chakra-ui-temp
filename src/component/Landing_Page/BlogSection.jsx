@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Grid, GridItem, Text, Image, Box, Button } from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
+import {
+  Link,
+  useParams,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import "./BlogSection.css";
 import { VscArrowRight } from "react-icons/vsc";
+import Threepost from "../Landing_Page/ThreePost";
+
+// importing other pages
+import PharmacyPage from "../Pharmacy_Page/PharmacyPage";
+
 // ---------------------------------------------------------------------------
 const BlogSection = () => {
   return (
@@ -11,10 +22,17 @@ const BlogSection = () => {
         templateRows="1fr"
         placeItems="center"
         p="1rem"
+        id="blogs&articles"
         // bg="#e9f8f3"
       >
         <BlogComponent />
+        {/* <Routes>
+          <Route path="blog" exact element={<BlogComponent />} />
+
+          <Route path="blog/:id" exact element={<Threepost />} />
+        </Routes> */}
       </Grid>
+      {/* <ViewMoreBtn /> */}
     </>
   );
 };
@@ -71,8 +89,6 @@ const BlogComponent = () => {
         templateColumns="350px 350px 350px"
         // placeItems="center"
         columnGap="2rem"
-        // border="1px solid green"
-        // p="1rem"
         h="100%"
       >
         {posts.map((post, index) => (
@@ -83,36 +99,15 @@ const BlogComponent = () => {
               bg="white"
               key={post.title}
             >
-              {/* <Link key={index} to={`/Blogs/${post.slug}`}> */}
               <DefaultApiprops post={post} key={index.toString()} />
               {/* </Link> */}
             </Grid>
           </>
         ))}
       </Grid>
-
-      <Grid templateRows="1fr" p=".75rem">
-        <GridItem textAlign="center">
-          <Button
-            // as="button"
-            cursor="pointer"
-            p=".75rem"
-            // boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
-            // textDecoration="underline"
-            border="1px solid #059b5c"
-            borderRadius=".25rem"
-
-            bg="white"
-
-            _hover={{
-              color: "white",
-              bg:"#059b5c"
-            }}
-          >
-            View More
-          </Button>
-        </GridItem>
-      </Grid>
+      <ViewMoreBtn />
+      
+      
     </>
   );
 };
@@ -139,45 +134,35 @@ function DefaultApiprops({ post }) {
           gridRow="2/3"
           color="black"
           // border="1px solid"
-          as="a"
-          href={`/Blogs/${post.slug}`}
+          // as="a"
+          // href={`/blog/${post.slug}`}
           cursor="pointer"
           placeSelf="center"
           p="1rem"
           textAlign="left"
         >
-          <Text fontWeight="600">{post.title}</Text>
+          <Link to={`/blog/${post.slug}`}>
+            <Text fontWeight="600">{post.title}</Text>
+          </Link>
         </GridItem>
 
         <GridItem p="1rem" mb="1rem" gridRow="3/4" noOfLines="3">
           {post.brief}
         </GridItem>
-        <GridItem
-          mr="1rem"
-          p="1rem"
-          gridRow="4/5"
-          // justifySelf="end"
-          // alignSelf="center"
-        >
-          <Box
-            d="flex"
-            justifyContent="flex-end"
-            as="a"
-            href={`/Blogs/${post.slug}`}
-          >
-            {/* <Text flexDirection="column">
-             
-            </Text> */}
-            <Button
-              p=".5rem"
-              bg="transparent"
-              border="none"
-              outline="none"
-              color="#059b5c"
-              cursor="pointer"
-            >
-              Read Full
-            </Button>
+        <GridItem mr="1rem" p="1rem" gridRow="4/5">
+          <Box d="flex" justifyContent="flex-end">
+            <Link to={`/blog/${post.slug}`}>
+              <Button
+                p=".5rem"
+                bg="transparent"
+                border="none"
+                outline="none"
+                color="#059b5c"
+                cursor="pointer"
+              >
+                Read Full
+              </Button>
+            </Link>
             <Box alignSelf="center" cursor="pointer">
               {" "}
               <VscArrowRight color="#059b5c" />
@@ -188,3 +173,44 @@ function DefaultApiprops({ post }) {
     </>
   );
 }
+
+const ViewMoreBtn = () => {
+  return (
+    <>
+      <Grid templateRows="1fr" p=".75rem">
+        <GridItem textAlign="center">
+          {/* <Text> */}
+          <Link to="blog">
+            <Button
+              as="button"
+              cursor="pointer"
+              p=".75rem"
+              boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
+              // textDecoration="underline"
+              border="1px solid #059b5c"
+              borderRadius=".25rem"
+              bg="white"
+              _hover={{
+                color: "white",
+                bg: "#059b5c",
+              }}
+            >
+              View More
+            </Button>
+          </Link>
+          {/* </Text> */}
+
+          {/* </Link> */}
+        </GridItem>
+      </Grid>
+    </>
+  );
+};
+
+const ViewMoreMsg = () => {
+  return (
+    <>
+      <h1>this is msg</h1>
+    </>
+  );
+};

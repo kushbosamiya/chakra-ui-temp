@@ -15,6 +15,7 @@ const TreatmentSection = () => {
   return (
     <>
       <Grid templateRows="1fr" p="1rem" 
+      id="treatmentsection"
       // bg="#e9f8f3"
       >
         {/* <AllopathicTreatment /> */}
@@ -30,6 +31,7 @@ const Treatments = () => {
   return (
     <>
       <Grid
+      
         templateColumns=".5fr .5fr .5fr .5fr .5fr"
         columnGap="2rem"
         p="1rem"

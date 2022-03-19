@@ -35,7 +35,7 @@ const HeroBody = () => {
     <>
       {/* center */}
       <Grid
-        templateColumns="60% 40%"
+        templateColumns="1fr 1fr"
         bg="white"
         borderRadius="1rem"
         boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"

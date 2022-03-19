@@ -13,6 +13,7 @@ const DiseaseSection = () => {
   return (
     <>
       <Grid templateRows="1fr 1fr" p="1rem" 
+      id="specialization"
       // bg="#e9f8f3"
        placeItems="center" rowGap="1rem">
         <DiseaseFirstColumn />
