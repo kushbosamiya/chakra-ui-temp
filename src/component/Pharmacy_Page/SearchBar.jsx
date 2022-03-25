@@ -39,8 +39,7 @@ const SearchBar = () => {
               outline="none"
               fontSize="1rem"
               h="1.5rem"
-              // placeholder=
-              
+              placeholder="Search for ayurvedic , allopathic and homeopathic medicines "
             />
           </Box>
         </InputGroup>

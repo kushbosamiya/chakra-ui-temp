@@ -8,15 +8,15 @@ import ChildIcon from "../Assets/TreatmentSection/new_treatment_icon-4.svg";
 import WashBottle from "../Assets/TreatmentSection/new_treatment_icon-5.svg";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-
-
-// consult section ma left align krva nu chhe ane aakho regular arrow nakhva nu chhe 
+// consult section ma left align krva nu chhe ane aakho regular arrow nakhva nu chhe
 const TreatmentSection = () => {
   return (
     <>
-      <Grid templateRows="1fr" p="1rem" 
-      id="treatmentsection"
-      // bg="#e9f8f3"
+      <Grid
+        templateRows="1fr"
+        p="1rem"
+        id="treatmentsection"
+        // bg="#e9f8f3"
       >
         {/* <AllopathicTreatment /> */}
         <Treatments />
@@ -31,7 +31,6 @@ const Treatments = () => {
   return (
     <>
       <Grid
-      
         templateColumns=".5fr .5fr .5fr .5fr .5fr"
         columnGap="2rem"
         p="1rem"
@@ -134,11 +133,18 @@ const TreatmentProps = ({ imgsrc, title, description, singleicon }) => {
   return (
     <>
       <Grid
-        templateRows=".5fr .5fr .5fr .5fr "
+        templateRows="repeat(4,.2fr)"
         bg="white"
-        boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;"
+        border="1px solid #E7EBF0"
+        _hover={{
+          boxShadow:
+            "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;",
+          // transition:
+          transition: ".5s ease-in-out",
+        }}
         p="1rem"
-        borderRadius="1rem"
+        rowGap=".5rem"
+        borderRadius=".5rem"
         placeContent="center"
       >
         {/* images */}

@@ -5,7 +5,7 @@ const DiseaseHeadline = () => {
   return (
     <>
 
-        <Grid templateAreas="1fr">
+        <Grid templateRows="1fr">
             <GridItem 
             // bg="#e9f8f3"
              p="1rem" textAlign="center" >

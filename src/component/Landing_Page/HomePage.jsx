@@ -8,6 +8,7 @@ import DiseaseSection from "./DiseaseSection";
 import BlogHeadline from "./BlogHeadline";
 import BlogSection from "./BlogSection";
 import Divider from "@mui/material/Divider";
+// import ".../src/styles.css";
 
 import Threepost from "./ThreePost";
 import {
@@ -38,11 +39,7 @@ const HomePage = () => {
       </Divider>
       {/* <Router> */}
       <BlogSection />
-      {/* <Routes>
-            <Route path="/" exact element={<BlogSection />} />
-            <Route path="blog/:id" exact element={<Threepost />} />
-          </Routes> */}
-      {/* </Router> */}
+
       {/* <ConsultSection /> */}
       <Footer />
     </>

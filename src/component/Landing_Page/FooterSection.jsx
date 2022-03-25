@@ -27,7 +27,6 @@ const Footer = () => {
             columnGap="1rem"
             as="footer"
             p="1rem"
-         
           >
             {/* first column */}
 
@@ -35,7 +34,8 @@ const Footer = () => {
               templateRows="repeat(5,1fr)"
               // border="1px solid black"
               // placeItems="end"
-
+              color="black"
+              textDecoration="none"
               p="1rem"
               rowGap=".5rem"
             >
@@ -52,15 +52,19 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href="#blog">
+                <Box 
+                as="a"
+                 href="#blog">
                   <ScrollLink
                     to="blogs&articles"
-                    spy={true}
-                    smooth={true}
+                    // spy={true}
+                    // smooth={true}
                     offset={-70}
                     duration={750}
                   >
-                    <Text>Blogs</Text>
+                    <Text color="black" textDecoration="none">
+                      Blogs
+                    </Text>
                   </ScrollLink>
                 </Box>
 
@@ -74,16 +78,19 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href="#Treatments">
-                  
+                <Box 
+                as="a"
+                 href="#Treatments">
                   <ScrollLink
                     to="treatmentsection"
-                    spy={true}
-                    smooth={true}
+                    // spy={true}
+                    // smooth={true}
                     offset={-70}
                     duration={750}
                   >
-                    <Text>Treatments</Text>
+                    <Text color="black" textDecoration="none">
+                      Treatments
+                    </Text>
                   </ScrollLink>
                 </Box>
               </GridItem>
@@ -95,16 +102,19 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Speciality">
-                  
+                <Box 
+                as="a"
+                 href=" #Speciality">
                   <ScrollLink
                     to="specialization"
-                    spy={true}
-                    smooth={true}
+                    // spy={true}
+                    // smooth={true}
                     offset={-70}
                     duration={750}
                   >
-                    <Text>Speciality</Text>
+                    <Text color="black" textDecoration="none">
+                      Speciality
+                    </Text>
                   </ScrollLink>
                 </Box>
                 {/* Speciality */}
@@ -117,7 +127,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Quick-Consult">
+                <Box
+                  // as="a"
+                  href=" #Quick-Consult"
+                  color="black"
+                  textDecoration="none"
+                >
                   Quick-Consult
                 </Box>
               </GridItem>
@@ -144,7 +159,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Search for doctors">
+                <Box
+                  // as="a"
+                  href=" #Search for doctors"
+                  color="black"
+                  textDecoration="none"
+                >
                   Search for doctors
                 </Box>
               </GridItem>
@@ -156,7 +176,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Online Consultation">
+                <Box
+                  // as="a"
+                  href=" #Online Consultation"
+                  color="black"
+                  textDecoration="none"
+                >
                   Online Consultation
                 </Box>
                 {/* Online Consultation */}
@@ -169,7 +194,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Health Article">
+                <Box
+                  // as="a"
+                  href=" #Health Article"
+                  color="black"
+                  textDecoration="none"
+                >
                   Health Article
                 </Box>
                 {/* Health Article */}
@@ -182,7 +212,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Diagnostic test">
+                <Box
+                  // as="a"
+                  href=" #Diagnostic test"
+                  color="black"
+                  textDecoration="none"
+                >
                   Diagnostic test
                 </Box>
                 {/* Diagnostic test */}
@@ -195,7 +230,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Pharmacy">
+                <Box
+                  // as="a"
+                  href=" #Pharmacy"
+                  color="black"
+                  textDecoration="none"
+                >
                   Pharmacy
                 </Box>
                 {/* Pharmacy */}
@@ -211,7 +251,9 @@ const Footer = () => {
             >
               <GridItem>
                 <strong>
-                  <Text>Hospital</Text>
+                  <Text color="black" textDecoration="none">
+                    Hospital
+                  </Text>
                 </strong>
               </GridItem>
               <GridItem
@@ -222,7 +264,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Hospital Login">
+                <Box
+                  // as="a"
+                  href=" #Hospital Login"
+                  color="black"
+                  textDecoration="none"
+                >
                   Hospital Login
                 </Box>
                 {/* Hospital Login */}
@@ -235,7 +282,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #CRUD Hospitals">
+                <Box
+                  // as="a"
+                  href=" #CRUD Hospitals"
+                  color="black"
+                  textDecoration="none"
+                >
                   CRUD Hospitals
                 </Box>
                 {/* CRUD Hospitals */}
@@ -248,7 +300,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Manage Hospital's Profile">
+                <Box
+                  // as="a"
+                  href=" #Manage Hospital's Profile"
+                  color="black"
+                  textDecoration="none"
+                >
                   Manage Hospital's Profile
                 </Box>
                 {/* Manage Hospital's Profile */}
@@ -261,7 +318,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Manage Hospital's appointment">
+                <Box
+                  // as="a"
+                  href=" #Manage Hospital's appointment"
+                  color="black"
+                  textDecoration="none"
+                >
                   Manage Hospital's appointment
                 </Box>
                 {/* Manage Hospital's appointment */}
@@ -288,7 +350,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Doctors Login">
+                <Box
+                  // as="a"
+                  href=" #Doctors Login"
+                  color="black"
+                  textDecoration="none"
+                >
                   Doctors Login
                 </Box>
                 {/* Doctors Login */}
@@ -302,7 +369,12 @@ const Footer = () => {
                 }}
               >
                 {/* CRUD Doctors */}
-                <Box as="a" href=" #CRUD Doctors">
+                <Box
+                  // as="a"
+                  href=" #CRUD Doctors"
+                  color="black"
+                  textDecoration="none"
+                >
                   CRUD Doctors
                 </Box>
               </GridItem>
@@ -314,7 +386,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Manage appointment">
+                <Box
+                  // as="a"
+                  href=" #Manage appointment"
+                  color="black"
+                  textDecoration="none"
+                >
                   Manage appointment
                 </Box>
                 {/* Manage appointment */}
@@ -327,7 +404,12 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                <Box as="a" href=" #Manage Doctors's Profile">
+                <Box
+                  // as="a"
+                  href=" #Manage Doctors's Profile"
+                  color="black"
+                  textDecoration="none"
+                >
                   Manage Doctors's Profile
                 </Box>
                 {/* Manage Doctors's Profile */}
@@ -346,23 +428,71 @@ const Footer = () => {
                   <Text>Social</Text>
                 </strong>
               </GridItem>
-              <GridItem as="a" href="#FaceBook">
-                <Image src={Facebook} alt="FaceBook" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#FaceBook">
+                <Image
+                  src={Facebook}
+                  h="20px"
+                  w="20px"
+                  alt="FaceBook"
+                  cursor="pointer"
+                />
               </GridItem>
-              <GridItem as="a" href="#Twitter">
-                <Image src={Twitter} alt="Twitter" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#Twitter">
+                <Image
+                  src={Twitter}
+                  h="20px"
+                  w="20px"
+                  alt="Twitter"
+                  cursor="pointer"
+                />
               </GridItem>
-              <GridItem as="a" href="#Instagram">
-                <Image src={Instagram} alt="Instagram" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#Instagram">
+                <Image
+                  src={Instagram}
+                  h="20px"
+                  w="20px"
+                  alt="Instagram"
+                  cursor="pointer"
+                />
               </GridItem>
-              <GridItem as="a" href="#WhatsApp">
-                <Image src={WhatsApp} alt="WhatsApp" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#WhatsApp">
+                <Image
+                  src={WhatsApp}
+                  h="20px"
+                  w="20px"
+                  alt="WhatsApp"
+                  cursor="pointer"
+                />
               </GridItem>
-              <GridItem as="a" href="#Github">
-                <Image src={Github} alt="Github" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#Github">
+                <Image
+                  src={Github}
+                  h="20px"
+                  w="20px"
+                  alt="Github"
+                  cursor="pointer"
+                />
               </GridItem>
-              <GridItem as="a" href="#Discord">
-                <Image src={Discord} alt="Discord" cursor="pointer" />
+              <GridItem 
+              // as="a"
+               href="#Discord">
+                <Image
+                  src={Discord}
+                  h="20px"
+                  w="20px"
+                  alt="Discord"
+                  cursor="pointer"
+                />
               </GridItem>
             </Grid>
           </Grid>

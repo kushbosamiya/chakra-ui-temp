@@ -4,7 +4,7 @@ import { Grid, GridItem, Text } from "@chakra-ui/react";
 const BlogHeadline = () => {
   return (
     <>
-      <Grid templateAreas="1fr" 
+      <Grid templateRows="1fr" 
       
       >
         <GridItem 

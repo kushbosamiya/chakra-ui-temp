@@ -7,13 +7,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import HashnodeData from "../Hashnode_data/Hashnode_data.json";
 import "./BlogSection.css";
 import { VscArrowRight } from "react-icons/vsc";
-import Threepost from "../Landing_Page/ThreePost";
 
 // importing other pages
 import PharmacyPage from "../Pharmacy_Page/PharmacyPage";
-
+import ReadMore from "../Assets/BlogSection/read3.svg";
 // ---------------------------------------------------------------------------
 const BlogSection = () => {
   return (
@@ -26,13 +26,7 @@ const BlogSection = () => {
         // bg="#e9f8f3"
       >
         <BlogComponent />
-        {/* <Routes>
-          <Route path="blog" exact element={<BlogComponent />} />
-
-          <Route path="blog/:id" exact element={<Threepost />} />
-        </Routes> */}
       </Grid>
-      {/* <ViewMoreBtn /> */}
     </>
   );
 };
@@ -57,6 +51,7 @@ const BlogComponent = () => {
     }
   `;
 
+  let DisplaythreePost = [];
   // async await function
   async function fetchPosts() {
     const response = await fetch("https://api.hashnode.com", {
@@ -68,61 +63,77 @@ const BlogComponent = () => {
     });
 
     const ApiResponse = await response.json();
+    // console.log(ApiResponse);
     const Path = ApiResponse.data.user.publication.posts;
     console.log("this is path", Path);
 
-    let DisplaythreePost = [];
     if (Path.length > 0) {
-      for (let index = 1; index < 4; index++) {
+      for (let index = 0; index < 3; index++) {
         DisplaythreePost = [...DisplaythreePost, Path[index]];
       }
     }
     setposts(DisplaythreePost);
   }
+  function FetchPostData() {
+    Object.entries(HashnodeData).map(function (item, indexes) {
+      // console.log("item[1]",item[1])
+      // console.log(indexes)
+      if (item[1].length > 0) {
+        for (let index = 0; index < 3; index++) {
+          DisplaythreePost = [...DisplaythreePost, item[1][index]];
+          // console.log("succed", DisplaythreePost);
+        }
+      }
+      setposts(DisplaythreePost);
+    });
+  }
 
   useEffect(() => {
-    fetchPosts();
+    FetchPostData();
   }, []);
   return (
     <>
-      <Grid
-        templateColumns="350px 350px 350px"
-        // placeItems="center"
-        columnGap="2rem"
-        h="100%"
-      >
-        {posts.map((post, index) => (
-          <>
-            <Grid
-              boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
-              borderRadius=".5rem"
-              bg="white"
-              key={post.title}
-            >
-              <DefaultApiprops post={post} key={index.toString()} />
-              {/* </Link> */}
-            </Grid>
-          </>
-        ))}
+      <Grid templateColumns="350px 350px 350px" columnGap="2rem">
+        {posts.map(function (post, index) {
+          return (
+            <>
+              <Grid
+                templateRows="1fr"
+                placeContent="center"
+                border="1px solid #E7EBF0"
+                _hover={{
+                  boxShadow:
+                    "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;",
+                  // transition:
+                  transition: ".5s ease-in-out",
+                }}
+                borderRadius=".5rem"
+                bg="white"
+                key={post.id}
+              >
+                <DefaultApiprops post={post} key={index} />
+              </Grid>
+            </>
+          );
+        })}
       </Grid>
       <ViewMoreBtn />
-      
-      
     </>
   );
 };
 
 // default api properties
 function DefaultApiprops({ post }) {
-  console.log("defaultPost", post);
+  // console.log("threepost :", post.brief);
   return (
     <>
       {/* 1st column */}
-      <Grid templateRows="50% 10% 25% 15%">
-        <GridItem gridRow="1/2" p="1rem">
+      <Grid templateRows="1fr .25fr .50fr .10fr" p=".5rem">
+        {/* 50% 10% 25% 15% */}
+        <GridItem gridRow="1/2" justifySelf="center" mt=".5rem">
           <Image
-            h="100%"
-            w="100%"
+            h="200px"
+            w="320px"
             borderRadius=".5rem"
             objectFit="cover"
             src={post.coverImage}
@@ -133,40 +144,27 @@ function DefaultApiprops({ post }) {
         <GridItem
           gridRow="2/3"
           color="black"
-          // border="1px solid"
-          // as="a"
-          // href={`/blog/${post.slug}`}
           cursor="pointer"
           placeSelf="center"
-          p="1rem"
-          textAlign="left"
+          p=".5rem"
         >
           <Link to={`/blog/${post.slug}`}>
-            <Text fontWeight="600">{post.title}</Text>
+            <Text fontWeight="700" color="#111827" textDecoration="none">
+              {post.title}
+            </Text>
           </Link>
         </GridItem>
 
-        <GridItem p="1rem" mb="1rem" gridRow="3/4" noOfLines="3">
-          {post.brief}
+        <GridItem p=".5rem" gridRow="3/4">
+          <Text color="#424b5a" lineHeight="1.3rem" fontWeight="400">
+            {post.brief}
+          </Text>
         </GridItem>
-        <GridItem mr="1rem" p="1rem" gridRow="4/5">
+        <GridItem p=".5rem" gridRow="4/5">
           <Box d="flex" justifyContent="flex-end">
             <Link to={`/blog/${post.slug}`}>
-              <Button
-                p=".5rem"
-                bg="transparent"
-                border="none"
-                outline="none"
-                color="#059b5c"
-                cursor="pointer"
-              >
-                Read Full
-              </Button>
+              <Image src={ReadMore} />
             </Link>
-            <Box alignSelf="center" cursor="pointer">
-              {" "}
-              <VscArrowRight color="#059b5c" />
-            </Box>
           </Box>
         </GridItem>
       </Grid>
@@ -203,14 +201,6 @@ const ViewMoreBtn = () => {
           {/* </Link> */}
         </GridItem>
       </Grid>
-    </>
-  );
-};
-
-const ViewMoreMsg = () => {
-  return (
-    <>
-      <h1>this is msg</h1>
     </>
   );
 };

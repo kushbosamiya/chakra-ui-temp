@@ -69,6 +69,7 @@ function Example() {
   return (
     <HStack {...group}>
       {options.map((value) => {
+        
         {/* const {Gender,ImgUrl} = value; */}
         const radio = getRadioProps({ value })
         return (

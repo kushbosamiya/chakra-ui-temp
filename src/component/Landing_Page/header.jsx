@@ -114,8 +114,8 @@ const BlogLink = () => {
       <Box cursor="pointer">
         <ScrollLink
           to="blogs&articles"
-          spy={true}
-          smooth={true}
+          // spy={true}
+          // smooth={true}
           offset={-70}
           duration={1000}
         >
@@ -131,7 +131,7 @@ const BlogLink = () => {
 
 const NavBarContainer = () => {
   return (
-    <Grid as="nav" fontWeight="900" templateColumns="5% 20% 60% 1fr" p="1rem">
+    <Grid fontWeight="900" templateColumns="5% 20% 60% 1fr" p="1rem">
       <MenuToggle />
       <Logo_Component />
 
@@ -163,7 +163,7 @@ const Logo_Component = () => {
           cursor="pointer"
         >
           <NavHashLink to="/">
-            <Text fontWeight="800" color="#059b5c" as="h1">
+            <Text fontWeight="800" fontSize="1.5rem" color="#059b5c">
               • Swasthya Setu •
             </Text>
           </NavHashLink>
@@ -229,7 +229,8 @@ const Avatar = () => {
                   p=".75rem"
                   border="1px solid lightgray"
                   borderRadius=".4rem"
-                  as="a"
+                  // as="a"
+
                   href="#HospitalLogin"
                 >
                   Hospital Login
@@ -238,7 +239,7 @@ const Avatar = () => {
                   p=".75rem"
                   border="1px solid lightgray"
                   borderRadius=".4rem"
-                  as="a"
+                  // as="a"
                   href="#DoctorLogin"
                 >
                   Doctor Login
@@ -248,8 +249,8 @@ const Avatar = () => {
                   p=".75rem"
                   border="1px solid lightgray"
                   borderRadius=".4rem"
-                  as="a"
-                  href="#"
+                  // as="a"
+                  // href="#"
                 >
                   Diagnose Login
                 </GridItem>
@@ -257,8 +258,8 @@ const Avatar = () => {
                   p=".75rem"
                   border="1px solid lightgray"
                   borderRadius=".4rem"
-                  as="a"
-                  href="#"
+                  // as="a"
+                  // href="#"
                 >
                   Patient Login
                 </GridItem>

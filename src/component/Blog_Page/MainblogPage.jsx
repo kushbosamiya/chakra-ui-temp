@@ -1,10 +1,10 @@
 import React from 'react'
-import Blogpage from '../Blog_Page/BlogPage'
+import BlogPage from "./BlogPage"
 
 const MainblogPage = () => {
   return (
     <>
-    <Blogpage />
+    <BlogPage />
     </>
   )
 }
