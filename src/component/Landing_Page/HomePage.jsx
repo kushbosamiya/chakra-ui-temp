@@ -10,13 +10,6 @@ import BlogSection from "./BlogSection";
 import Divider from "@mui/material/Divider";
 // import ".../src/styles.css";
 
-import Threepost from "./ThreePost";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
 import Footer from "./FooterSection";
 
 const HomePage = () => {

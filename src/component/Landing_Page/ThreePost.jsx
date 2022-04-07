@@ -136,3 +136,7 @@ export default Threepost;
 {
   /* <div dangerouslySetInnerHTML={{ __html: Singleposts.content }} /> */
 }
+
+
+
+// Himalaya-Gasex-Tablet

@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 // importing pages
 
-import PharmacyPage from "../Pharmacy_Page/PharmacyPage";
+
 
 // import "./src/styles.css"
 
@@ -79,7 +79,7 @@ const CustomNavBar = () => {
         {/* Home icon */}
 
         <Box cursor="pointer">
-          <Link to="/consult">
+          <Link to="consult">
             <Text fontWeight="600" color="#059b5c">
               Consult
             </Text>
@@ -93,7 +93,7 @@ const CustomNavBar = () => {
         {/* Home icon */}
 
         <Box cursor="pointer">
-          <Link to="/diagnose">
+          <Link to="diagnose">
             <Text fontWeight="600" color="#059b5c">
               Diagnose
             </Text>
@@ -115,7 +115,7 @@ const BlogLink = () => {
         <ScrollLink
           to="blogs&articles"
           // spy={true}
-          // smooth={true}
+          smooth={true}
           offset={-70}
           duration={1000}
         >

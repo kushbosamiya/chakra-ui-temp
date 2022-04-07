@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+  import React, { useState, useEffect } from "react";
 import { Grid, GridItem, Text, Image, Box, Button } from "@chakra-ui/react";
 import {
   Link,
@@ -81,7 +81,7 @@ const BlogComponent = () => {
       if (item[1].length > 0) {
         for (let index = 0; index < 3; index++) {
           DisplaythreePost = [...DisplaythreePost, item[1][index]];
-          // console.log("succed", DisplaythreePost);
+          console.log("succed", DisplaythreePost);
         }
       }
       setposts(DisplaythreePost);

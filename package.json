@@ -12,6 +12,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.5.1",
     "@react-icons/all-files": "^4.1.0",
+    "@supabase/supabase-js": "^1.33.3",
     "firebase": "^9.6.8",
     "framer-motion": "latest",
     "hamburger-react": "^2.4.1",

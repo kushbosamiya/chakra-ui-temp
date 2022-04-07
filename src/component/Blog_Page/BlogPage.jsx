@@ -37,7 +37,7 @@ const BlogPage = () => {
   // }
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Grid templateColumns=".5fr 1fr .5fr" p="1rem" columnGap="2rem">
         <GridItem gridColumn="2/3" p="1rem">
           <Box d="flex">
@@ -74,17 +74,14 @@ const BlogPage = () => {
           </Box>
         </GridItem>
       </Grid>
-      {Object.entries(HashnodeData).map((item) =>
-        item[1].map((post, index) => {
+      {Object.entries(HashnodeData).map((item,index) =>
+        item[1].map((post, indexes) => {
           return (
-            <>
-              {/* <Boxs d="flex"> */}
-              <Grid templateRows="1fr" placeContent="center" key={index.id}>
-                <BlogPageApiprops post={post} key={index.id} />
+            <li key={indexes}>
+              <Grid templateRows="1fr" placeContent="center">
+                <BlogPageApiprops post={post} />
               </Grid>
-
-              {/* </Boxs> */}
-            </>
+            </li>
           );
         })
       )}
@@ -92,33 +89,7 @@ const BlogPage = () => {
   );
 };
 
-// if (HashnodeData.posts.length > 0) {
-//   for (let index = 0; index < 3; index++) {
-//     DisplayAllPost = [...DisplayAllPost, HashnodeData.posts[index]];
-//   }
-// }
 
-// return (
-//   <>
-{
-  /* <Grid templateColumns=".5fr 1fr .5fr" p="1rem" columnGap="2rem">
-        <GridItem gridColumn="2/3" p="1rem">
-          <SearchBar />
-        </GridItem>
-      </Grid> */
-}
-// {Object.entries(HashnodeData).map((item) =>
-//   item[1].map((post, index) => {
-//     return (
-//       <>
-
-//         <Grid templateRows="1fr" placeContent="center" key={index.id}>
-//           <BlogPageApiprops post={post} key={index.id} />
-//         </Grid>
-//       </>
-//     );
-//   })
-// )}
 
 // {
 //   /* <Footer /> */
@@ -128,53 +99,53 @@ const BlogPage = () => {
 
 export default BlogPage;
 
-// const SearchBar = () => {
-//   const [FilterData, setFilterData] = useState([]);
-//   function HandleFilter(event) {
-//     const SearchBlog = event.target.value;
-//     // console.log(SearchBlog)
-//     const newFilter = HashnodeData.posts.filter((value) =>
-//       value.title.toLocaleLowerCase.includes(SearchBlog)
-//     );
-//     setFilterData(newFilter);
-//   }
-//   return (
-//     <>
-//       <Box d="flex">
-//         <InputGroup
-//           // border="1px solid gray"
-//           borderRadius=".45rem"
-//           w="100%"
-//           p=".5rem"
-//           bg="#f1f4f6"
-//           boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
+const SearchBar = () => {
+  const [FilterData, setFilterData] = useState([]);
+  function HandleFilter(event) {
+    const SearchBlog = event.target.value;
+    // console.log(SearchBlog)
+    const newFilter = HashnodeData.posts.filter((value) =>
+      value.title.toLocaleLowerCase.includes(SearchBlog)
+    );
+    setFilterData(newFilter);
+  }
+  return (
+    <>
+      <Box d="flex">
+        <InputGroup
+          // border="1px solid gray"
+          borderRadius=".45rem"
+          w="100%"
+          p=".5rem"
+          bg="#f1f4f6"
+          boxShadow="rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em"
 
-//           // bg="#efefef"
-//         >
-//           <Box alignItems="center">
-//             <InputLeftAddon
-//               borderRadius
-//               children={<Image w="24px" h="24px" src={SearchIcon} />}
-//             />
-//           </Box>
-//           <Box px="1rem" w="100%">
-//             <Input
-//               bg="#f1f4f6"
-//               border="none"
-//               overflow="hidden"
-//               w="40pc"
-//               outline="none"
-//               fontSize="1rem"
-//               h="1.5rem"
-//               placeholder="Search for blogs"
-//               onChange={HandleFilter}
-//             />
-//           </Box>
-//         </InputGroup>
-//       </Box>
-//     </>
-//   );
-// };
+          // bg="#efefef"
+        >
+          <Box alignItems="center">
+            <InputLeftAddon
+              borderRadius
+              children={<Image w="24px" h="24px" src={SearchIcon} />}
+            />
+          </Box>
+          <Box px="1rem" w="100%">
+            <Input
+              bg="#f1f4f6"
+              border="none"
+              overflow="hidden"
+              w="40pc"
+              outline="none"
+              fontSize="1rem"
+              h="1.5rem"
+              placeholder="Search for blogs"
+              onChange={HandleFilter}
+            />
+          </Box>
+        </InputGroup>
+      </Box>
+    </>
+  );
+};
 
 function BlogPageApiprops({ post }) {
   // console.log("BlogPage :", post);
