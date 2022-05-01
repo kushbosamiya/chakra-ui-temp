@@ -18,8 +18,6 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 // importing pages
 
-
-
 // import "./src/styles.css"
 
 // importing smooth scrolling
@@ -29,20 +27,14 @@ import { NavHashLink } from "react-router-hash-link";
 const NavLinks = () => {
   return (
     <>
-      <NavBarContainer />
+      <Grid templateRows="1fr">
+        <NavBarContainer />
+      </Grid>
     </>
   );
 };
 
 export default NavLinks;
-
-// {/* <Routes>
-// <Route path="/" exact element={<Home />} />
-// <Route path="pharmacy" exact element={<Pharmacy />} />
-// <Route path="consult" exact element={<Consult />} />
-// <Route path="diagnose" exact element={<Diagnose />} />
-// {/* <Route path="blogs&articles" exact element={<BlogLink />} /> */}
-// </Routes> */}
 
 const CustomNavBar = () => {
   return (
@@ -131,8 +123,7 @@ const BlogLink = () => {
 
 const NavBarContainer = () => {
   return (
-    <Grid fontWeight="900" templateColumns="5% 20% 60% 1fr" p="1rem">
-      <MenuToggle />
+    <Grid fontWeight="900" templateColumns=".75fr 1fr .75fr" p="1rem">
       <Logo_Component />
 
       <NavItems />
@@ -143,15 +134,15 @@ const NavBarContainer = () => {
   );
 };
 
-const MenuToggle = () => {
-  return (
-    <Grid templateColumns="auto" placeItems="center">
-      <GridItem cursor="pointer" gridColumn="1/2">
-        <Hamburger color="#059b5c" size="30" />
-      </GridItem>
-    </Grid>
-  );
-};
+// const MenuToggle = () => {
+//   return (
+//     <Grid templateColumns="auto" placeItems="center">
+//       <GridItem cursor="pointer" gridColumn="1/2">
+//         <Hamburger color="#059b5c" size="30" />
+//       </GridItem>
+//     </Grid>
+//   );
+// };
 
 // logo
 const Logo_Component = () => {

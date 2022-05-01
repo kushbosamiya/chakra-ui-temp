@@ -24,17 +24,7 @@ const BlogPage = () => {
   let DisplayAllPost = [];
   //
   const [FilterData, setFilterData] = useState([]);
-  // function HandleFilter(event) {
-  //   const SearchBlog = event.target.value;
-  //   console.log(SearchBlog)
-  //   const newFilter = HashnodeData.posts.filter((value) =>
-  //     value.title.toLowerCase().includes(SearchBlog.toLowerCase())
-  //   );
-  //   // setFilterData(newFilter);
-
-  //   FilterData.push(newFilter);
-  //   console.log(FilterData);
-  // }
+  
   return (
     <>
       {/* <Header /> */}

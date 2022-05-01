@@ -9,13 +9,14 @@ import BlogPage from "./component/Blog_Page/MainblogPage";
 import ErrorPage from "./component/ErrorPage/ErrorPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Threepost from "./component/Landing_Page/ThreePost";
+import CurrentDrug from "./component/Pharmacy_Page/CurrentDrug";
+import Cart from "./component/Pharmacy_Page/Cart";
+import StateProvider from "./component/context/StateProvider";
 
 function App() {
-  // console.log("hello");
-
   return (
-    
-      <Box>
+    <>
+      <StateProvider>
         <Router>
           {/* <HomePage /> */}
           {/* <Header /> */}
@@ -23,14 +24,16 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
             <Route path="/" exact element={<HomePage />} />
             <Route path="pharmacy" exact element={<PharmacyPage />} />
+            <Route path="pharmacy/:id" exact element={<CurrentDrug />} />
+            <Route path="pharmacy/cart" exact element={<Cart />} />
             <Route path="diagnose" exact element={<Diagnose />} />
             <Route path="consult" exact element={<Consult />} />
             <Route path="blog" exact element={<BlogPage />} />
             <Route path="blog/:id" exact element={<Threepost />} />
           </Routes>
         </Router>
-      </Box>
-    
+      </StateProvider>
+    </>
   );
 }
 const Consult = () => {

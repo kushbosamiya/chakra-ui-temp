@@ -81,7 +81,7 @@ const BlogComponent = () => {
       if (item[1].length > 0) {
         for (let index = 0; index < 3; index++) {
           DisplaythreePost = [...DisplaythreePost, item[1][index]];
-          console.log("succed", DisplaythreePost);
+          // console.log("succed", DisplaythreePost);
         }
       }
       setposts(DisplaythreePost);
@@ -97,6 +97,7 @@ const BlogComponent = () => {
         {posts.map(function (post, index) {
           return (
             <>
+            <li key={index}>
               <Grid
                 templateRows="1fr"
                 placeContent="center"
@@ -113,6 +114,7 @@ const BlogComponent = () => {
               >
                 <DefaultApiprops post={post} key={index} />
               </Grid>
+              </li>
             </>
           );
         })}
@@ -124,7 +126,7 @@ const BlogComponent = () => {
 
 // default api properties
 function DefaultApiprops({ post }) {
-  // console.log("threepost :", post.brief);
+ 
   return (
     <>
       {/* 1st column */}
