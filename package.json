@@ -13,20 +13,24 @@
     "@mui/icons-material": "^5.5.1",
     "@react-icons/all-files": "^4.1.0",
     "@supabase/supabase-js": "^1.33.3",
+    "faker": "^6.6.6",
     "firebase": "^9.6.8",
     "framer-motion": "latest",
     "hamburger-react": "^2.4.1",
     "hover.css": "^2.3.2",
     "react": "17.0.1",
+    "react-currency-format": "^1.1.0",
     "react-custom-radio-buttons-group": "^1.0.5",
     "react-dom": "17.0.1",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.2",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.0",
-    "react-scroll": "^1.8.6"
+    "react-scroll": "^1.8.6",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.3.1",
     "typescript": "3.3.3",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"

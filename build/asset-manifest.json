@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b00eb6d.css",
+    "main.js": "/static/js/main.f1abc4e3.js",
+    "static/media/404_Error_Page_not_Found_with_people_connecting_a_plug.gif": "/static/media/404_Error_Page_not_Found_with_people_connecting_a_plug.94eb60fb2b592198cb42.gif",
+    "static/media/Medicine.gif": "/static/media/Medicine.90888e18f6c53d4949aa.gif",
+    "static/media/new_treatment_icon-2.svg": "/static/media/new_treatment_icon-2.30226d62fb619c88a84707f0e70b046f.svg",
+    "static/media/Group-1.svg": "/static/media/Group-1.933a3f1c2a1c1804031879107d6701c2.svg",
+    "static/media/new_treatment_icon-5.svg": "/static/media/new_treatment_icon-5.1fc5bf665d8ede7144ee85963810d024.svg",
+    "static/media/new_treatment_icon-3.svg": "/static/media/new_treatment_icon-3.843a00b382e980fb9de7548027295b9b.svg",
+    "static/media/Group-6.svg": "/static/media/Group-6.9ce7bbd411f932b5546ab804c86a0cbb.svg",
+    "static/media/discord.svg": "/static/media/discord.934d82a2f33d46b11219998106064402.svg",
+    "static/media/Group-5.svg": "/static/media/Group-5.2a38ca11460299ca6c204ef2623c1653.svg",
+    "static/media/github.svg": "/static/media/github.5f09792ea34101e7d140ffd34202ca4f.svg",
+    "static/media/Group.svg": "/static/media/Group.9f032e07e16156be3dbe1a3a2d719e5c.svg",
+    "static/media/new_treatment_icon-4.svg": "/static/media/new_treatment_icon-4.407daeea6d9ca9655370ef934f1d622e.svg",
+    "static/media/Group-3.svg": "/static/media/Group-3.4bef25405f369895e8667e639dfead61.svg",
+    "static/media/logo_icon.svg": "/static/media/logo_icon.6f2ed395b0e3fb1233c33f7d0751722f.svg",
+    "static/media/read3.svg": "/static/media/read3.59c7e94e3e250bd6ab12ee25eabe362c.svg",
+    "static/media/Group-2.svg": "/static/media/Group-2.c186918ba0764ead38d288fd5c34d701.svg",
+    "static/media/whatsapp.svg": "/static/media/whatsapp.777c5d183adb41e023c9d91e4c43409f.svg",
+    "static/media/avatar-2.svg": "/static/media/avatar-2.38c0f0914aaae51495ae564a5543206f.svg",
+    "static/media/twitter.svg": "/static/media/twitter.0207372e74a13ac7ac09a5d7233bac18.svg",
+    "static/media/Group-4.svg": "/static/media/Group-4.577e04c7bfdd65502eb26576db43c004.svg",
+    "static/media/new_treatment_icon-1.svg": "/static/media/new_treatment_icon-1.1728121ea640e1dbceed64527698b3ef.svg",
+    "static/media/scientist-man-icon.svg": "/static/media/scientist-man-icon.881ab24f4b712270d5a76571b87113d2.svg",
+    "static/media/capsule-icon.svg": "/static/media/capsule-icon.ff2de66684d1a4c70b057f45a3de76a5.svg",
+    "static/media/blogger-icon.svg": "/static/media/blogger-icon.c59a50f179196cc099de1ed594396ed4.svg",
+    "static/media/readIcon.svg": "/static/media/readIcon.396fe0f128084e803c04a29a1be2543d.svg",
+    "index.html": "/index.html",
+    "static/media/instagram.svg": "/static/media/instagram.a82c52dd0a14db1e6c185c2a2473cf7e.svg",
+    "static/media/SearchIcon_2.svg": "/static/media/SearchIcon_2.5745b9f0c11b45955a9be8549198ad7b.svg",
+    "static/media/facebook.svg": "/static/media/facebook.190831e53c623fb7f208c5b3d289ed88.svg",
+    "static/media/arrow-right.svg": "/static/media/arrow-right.c77f0ac4512d0663774cfb6ee8a5f945.svg",
+    "main.3b00eb6d.css.map": "/static/css/main.3b00eb6d.css.map",
+    "main.f1abc4e3.js.map": "/static/js/main.f1abc4e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b00eb6d.css",
+    "static/js/main.f1abc4e3.js"
+  ]
+}

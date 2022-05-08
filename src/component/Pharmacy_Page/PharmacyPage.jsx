@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // import Context
-import { Carts } from "../context/StateProvider";
-import StateProvider from "../context/StateProvider";
+
+import { useStateValue } from "../context/StateProvider";
+
 import {
   Input,
   Grid,
@@ -44,44 +45,19 @@ import { IconContext } from "react-icons";
 // supabase files
 import { supabase } from "../client";
 
-
-
-
-
 const PharmacyPage = () => {
   return (
     <>
-      {/* <Header /> */}
-      <Grid templateColumns=".5fr 1fr .5fr" p="1rem">
-        <GridItem gridColumn="2/3">
-          <SearchBar />
-        </GridItem>
-        {/* <GridItem placeSelf="center">
-          <Cart />
-        </GridItem> */}
-      </Grid>
-
-      {/* sort buttons  */}
-      <Grid
-        templateColumns=".5fr .2fr .2fr .5fr"
-        p=".5rem"
-        columnGap="1rem"
-        placeItems="center"
-      >
-        <GridItem gridColumn="2/3">
-          <SpecializationButton />
-        </GridItem>
-        <GridItem gridColumn="3/4">
-          <SortButton />
-        </GridItem>
-        <GridItem gridColumn="4/5">
-          <Cart />
-        </GridItem>
-      </Grid>
-
+      <HeaderComponent />
       {/* medicine card */}
 
-      <Grid templateRows="1fr" placeContent="center" p="1rem">
+      <Grid
+        templateRows="1fr"
+        placeContent="center"
+        p="1rem"
+        mt="2rem"
+        minW="320px"
+      >
         <Grid
           templateColumns="300px 300px 300px"
           columnGap="1.5rem"
@@ -212,6 +188,7 @@ const HomeoSupa = () => {
   const [Data, setData] = useState([]);
   async function fetchPosts() {
     const { data } = await supabase.from("HomeoList");
+
     let Cdata = [];
 
     for (let index = 0; index < data.length; index++) {
@@ -226,24 +203,23 @@ const HomeoSupa = () => {
 
   return (
     <>
-      {Data.map((item) => {
+      {Data.map(function (item, index) {
         return (
-          <>
-            <li key={item.id}>
-              <DrugProps
-                imgsrc={item.img}
-                tag={item.tag}
-                slug={item.slug}
-                title={item.title}
-                subtitle={item.subtitle}
-                stars={item.stars}
-                rating={item.rating}
-                cutoffPrice={item.cutoff}
-                proff={item.proff}
-                price={item.price}
-              />
-            </li>
-          </>
+          <li key={index}>
+            <DrugProps
+              imgsrc={item.img}
+              tag={item.tag}
+              slug={item.slug}
+              title={item.title}
+              subtitle={item.subtitle}
+              stars={item.stars}
+              rating={item.rating}
+              cutoffPrice={item.cutoff}
+              proff={item.proff}
+              price={item.price}
+              quantity={item.quantity}
+            />
+          </li>
         );
       })}
     </>
@@ -267,9 +243,9 @@ const AlloSupa = () => {
 
   return (
     <>
-      {Data.map((item) => {
+      {Data.map(function (item, index) {
         return (
-          <li key={item.id}>
+          <li key={index}>
             <DrugProps
               imgsrc={item.img}
               tag={item.tag}
@@ -281,6 +257,7 @@ const AlloSupa = () => {
               cutoffPrice={item.cutoff}
               proff={item.proff}
               price={item.price}
+              quantity={item.quantity}
             />
           </li>
         );
@@ -307,9 +284,9 @@ const AyurvedaSupa = () => {
 
   return (
     <>
-      {Data.map((item) => {
+      {Data.map(function (item, index) {
         return (
-          <li key={item.id}>
+          <li key={index}>
             <DrugProps
               imgsrc={item.img}
               tag={item.tag}
@@ -321,6 +298,7 @@ const AyurvedaSupa = () => {
               cutoffPrice={item.cutoff}
               proff={item.proff}
               price={item.price}
+              quantity={item.quantity}
             />
           </li>
         );
@@ -329,10 +307,8 @@ const AyurvedaSupa = () => {
   );
 };
 
-const Cart = () => {
-  // const [{ Basket }] = usestateValue();
-  const ReceivedData = useContext(Carts);
-  console.log(ReceivedData.data.length);
+function CartCompo() {
+  const [{ basket, user }, dispatch] = useStateValue();
 
   return (
     <>
@@ -345,15 +321,54 @@ const Cart = () => {
             </Box>
             <Box pl=".5rem">
               <Text fontWeight="600" color="#059b5c">
-                {ReceivedData.data.length}
+                {/* optional chaining */}
+                {basket?.length}
               </Text>
             </Box>
           </Box>
-          {/* <Text textAlign="center" fontWeight="600" color="#059b5c">
-            Cart
-          </Text> */}
         </Box>
       </Link>
     </>
   );
-};
+}
+
+export function HeaderComponent() {
+  return (
+    <Box
+      position="sticky"
+      top="0"
+      zIndex="100"
+      width="100%"
+      bg="white"
+      borderBottom="1px solid lightgray"
+      minW="320px"
+    >
+      <Grid templateColumns=".5fr 1fr .5fr" p="1rem">
+        <GridItem gridColumn="2/3">
+          <SearchBar />
+        </GridItem>
+        {/* <GridItem placeSelf="center">
+          <Cart />
+        </GridItem> */}
+      </Grid>
+
+      {/* sort buttons  */}
+      <Grid
+        templateColumns=".5fr .2fr .2fr .5fr"
+        p=".5rem"
+        columnGap="1rem"
+        placeItems="center"
+      >
+        <GridItem gridColumn="2/3">
+          <SpecializationButton />
+        </GridItem>
+        <GridItem gridColumn="3/4">
+          <SortButton />
+        </GridItem>
+        <GridItem gridColumn="4/5">
+          <CartCompo />
+        </GridItem>
+      </Grid>
+    </Box>
+  );
+}

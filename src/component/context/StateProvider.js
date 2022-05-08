@@ -1,41 +1,20 @@
-import { createContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 
-export const Carts = createContext();
+// Prepares the dataLayer
+export const StateContext = createContext();
 
-const StateProvider = ({ children }) => {
-  const [data, setdata] = useState([]);
-  const AddToCart = (
-    imgsrc,
-    tag,
-    slug,
-    title,
-    subtitle,
-    stars,
-    rating,
-    cutoffPrice,
-    proff,
-    price
-  ) => {
-    setdata((PrevState) => [
-      ...PrevState,
-      {
-        imgsrc,
-        tag,
-        slug,
-        title,
-        subtitle,
-        stars,
-        rating,
-        cutoffPrice,
-        proff,
-        price,
-      },
-    ]);
-  };
+// Wrap our app and provide the Data layer
 
+export function StateProvider({ reducer, initialState, children }) {
   return (
-    <Carts.Provider value={{ data, AddToCart }}>{children}</Carts.Provider>
+    <>
+      <StateContext.Provider value={useReducer(reducer, initialState)}>
+        {children}
+      </StateContext.Provider>
+      ;
+    </>
   );
-};
+}
 
-export default StateProvider;
+// Pull information from the data layer
+export const useStateValue = () => useContext(StateContext);

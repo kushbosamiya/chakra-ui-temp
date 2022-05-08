@@ -1,5 +1,5 @@
 // import react-libraries
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // importing chakra-ui-libraries
 import { Grid, GridItem, Image, Text, Box, Button } from "@chakra-ui/react";
 //importing chakra ui component
@@ -8,7 +8,11 @@ import Rating from "@mui/material/Rating";
 // from react router
 import { Link } from "react-router-dom";
 // import Context
-import { Carts } from "../context/StateProvider";
+// import { Carts } from "../context/StateProvider";
+import { useStateValue } from "../context/StateProvider";
+
+// to generate unique id
+import { v4 as uuid } from "uuid";
 
 const DrugProps = ({
   imgsrc,
@@ -21,13 +25,52 @@ const DrugProps = ({
   cutoffPrice,
   proff,
   price,
+  quantity,
 }) => {
-  const AddToCart = useContext(Carts);
+  // clever pro
+  const [{ basket }, dispatch] = useStateValue();
+
+  // const { AddToCart, Cart } = useContext(Carts);
+  function AddToCartEvent() {
+    dispatch({
+      // id,
+      // imgsrc,
+      // tag,
+      // slug,
+      // title,
+      // subtitle,
+      // stars,
+      // rating,
+      // cutoffPrice,
+      // proff,
+      // price,
+
+      type: "ADD_TO_BASKET",
+      item: {
+        id: uuid(),
+        title: title,
+        imgsrc: imgsrc,
+        rating: rating,
+        tag: tag,
+        slug: slug,
+        subtitle: subtitle,
+        stars: stars,
+        cutoffPrice: cutoffPrice,
+        price: price,
+        proff: proff,
+        quantity: quantity,
+      },
+    });
+
+    // console.log(Cart);
+    return <></>;
+  }
 
   return (
     <Grid
+      // mt="6rem"
       id="singledrug"
-      templateRows="1fr .15fr .3fr .15fr .10fr .10fr  .2fr"
+      templateRows="repeat(7,auto)"
       p="1rem"
       h="100%"
       border="1px solid #E7EBF0"
@@ -40,10 +83,8 @@ const DrugProps = ({
       borderRadius=".25rem"
       bg="white"
     >
-      <GridItem gridRow="1/2" justifySelf="center" m=".5rem">
+      <GridItem pt=".5rem" gridRow="1/2" justifySelf="center" m=".5rem">
         <Image
-          // border="1px solid #E7EBF0"
-          // borderRadius=".25rem"
           h="180px"
           w="180px"
           objectFit="contain"
@@ -51,7 +92,7 @@ const DrugProps = ({
           alt={title}
         />
       </GridItem>
-      <GridItem gridRow="2/3" alignSelf="center">
+      <GridItem pt=".5rem" gridRow="2/3" alignSelf="center">
         <Chip
           variant="outlined"
           size="small"
@@ -63,6 +104,7 @@ const DrugProps = ({
         />
       </GridItem>
       <GridItem
+        pt=".5rem"
         fontWeight="600"
         color="#111827"
         gridRow="3/4"
@@ -73,12 +115,12 @@ const DrugProps = ({
           <Text color="#111827">{title}</Text>
         </Link>
       </GridItem>
-      <GridItem gridRow="4/5" alignSelf="center">
+      <GridItem pt=".5rem" gridRow="4/5" alignSelf="center">
         <Text color="#424b5a" lineHeight="1.3rem" fontWeight="400">
           {subtitle}
         </Text>
       </GridItem>
-      <GridItem>
+      <GridItem pt=".5rem">
         <Box
           d="inline-flex"
           fontSize=".95rem"
@@ -98,7 +140,7 @@ const DrugProps = ({
           </Box>
         </Box>
       </GridItem>
-      <GridItem gridRow="6/7">
+      <GridItem pt=".5rem" gridRow="6/7">
         <Box fontSize="1rem" color="#424b5a" fontWeight="300" d="inline-flex">
           <Text>MRP </Text>
           <Box pl=".3rem ">
@@ -109,12 +151,13 @@ const DrugProps = ({
           </Box>
         </Box>
       </GridItem>
-      <GridItem pt=".5rem" gridRow="7/8" alignSelf="end">
-        <Grid templateColumns="1fr 1fr">
+      <GridItem pt=".5rem" gridRow="7/8">
+        <Grid templateColumns=".5fr .5fr" columnGap=".5rem">
           <GridItem alignSelf="center">
             <Text fontWeight="400">{price}</Text>
           </GridItem>
-          <GridItem alignSelf="center" justifySelf="end">
+
+          <GridItem justifySelf="end">
             <Button
               as="button"
               cursor="pointer"
@@ -128,18 +171,7 @@ const DrugProps = ({
                 bg: "#059b5c",
                 color: "white",
               }}
-              onClick={(
-                imgsrc,
-                tag,
-                slug,
-                title,
-                subtitle,
-                stars,
-                rating,
-                cutoffPrice,
-                proff,
-                price
-              ) => AddToCart}
+              onClick={AddToCartEvent}
             >
               Add to cart
             </Button>
