@@ -11,6 +11,10 @@ import { Link } from "react-router-dom";
 // import { Carts } from "../context/StateProvider";
 import { useStateValue } from "../context/StateProvider";
 
+// import module for currency
+
+import CurrencyFormat from "react-currency-format";
+
 // to generate unique id
 import { v4 as uuid } from "uuid";
 
@@ -144,17 +148,41 @@ const DrugProps = ({
         <Box fontSize="1rem" color="#424b5a" fontWeight="300" d="inline-flex">
           <Text>MRP </Text>
           <Box pl=".3rem ">
-            <Text textDecoration="line-through">{cutoffPrice}</Text>
+            <Text textDecoration="line-through">
+              <CurrencyFormat
+                decimalScale={2}
+                value={cutoffPrice}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"₹"}
+              />
+            </Text>
           </Box>
           <Box pl=".3rem ">
-            <Text color="#059b5c">{proff}</Text>
+            <Text color="#059b5c">
+              <CurrencyFormat
+                decimalScale={2}
+                value={proff}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"₹"}
+              />
+            </Text>
           </Box>
         </Box>
       </GridItem>
       <GridItem pt=".5rem" gridRow="7/8">
         <Grid templateColumns=".5fr .5fr" columnGap=".5rem">
           <GridItem alignSelf="center">
-            <Text fontWeight="400">{price}</Text>
+            <Text fontWeight="400">
+              <CurrencyFormat
+                decimalScale={2}
+                value={price}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"₹"}
+              />
+            </Text>
           </GridItem>
 
           <GridItem justifySelf="end">

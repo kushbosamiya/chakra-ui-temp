@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
-
+import PaymentIntergration from "../Pharmacy_Page/Frontend/PaymentIntergration";
 // Prepares the dataLayer
 export const StateContext = createContext();
 
@@ -8,7 +8,9 @@ export const StateContext = createContext();
 export function StateProvider({ reducer, initialState, children }) {
   return (
     <>
-      <StateContext.Provider value={useReducer(reducer, initialState)}>
+      <StateContext.Provider
+        value={(PaymentIntergration, useReducer(reducer, initialState))}
+      >
         {children}
       </StateContext.Provider>
       ;

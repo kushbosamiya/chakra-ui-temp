@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 // import { Carts } from "../context/StateProvider";
 import { useStateValue } from "../context/StateProvider";
 import { getBasketTotal } from "../context/reducer";
+import { supabase } from "../client";
+import PaymentIntergration from "./Frontend/PaymentIntergration";
 
 // import module for currency
 
@@ -10,10 +12,13 @@ import CurrencyFormat from "react-currency-format";
 import {
   Grid,
   GridItem,
+  FormControl,
+  InputLeftAddon,
   Box,
   Text,
   Image,
   Button,
+  Select,
   useControllableProp,
   useControllableState,
 } from "@chakra-ui/react";
@@ -23,12 +28,80 @@ import AddIcon from "@mui/icons-material/Add";
 // // to generate unique id
 import { v4 as uuid } from "uuid";
 
+import AddressComponent from "./AddressComponent";
+
 const CartComponent = () => {
-  const [value, setValue] = useControllableState([1]);
+  // for increamenting and decreamenting items
+  const [name, setName] = useState("Kush");
+
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd = (product) => {
+    const exist = basket?.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        basket?.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.quantity + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = basket?.find((x) => x.id === product.id);
+    if (exist.quantity === 1) {
+      setCartItems(basket?.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        basket?.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.quantity - 1 } : x
+        )
+      );
+    }
+  };
+
+  // for price
+  const [Total, setTotal] = useState();
+  // for Discount
+  const [Discount, setDiscount] = useState();
+  const [TotalAmount, setTotalAmount] = useState();
   const [{ basket }, dispatch] = useStateValue();
 
   const RenderMedicalItems = () => {
+    const getTotalPrice = () => {
+      let total = 0;
+      cartItems.forEach((item) => {
+        total = total + basket?.price * basket?.quantity;
+      });
+      return total;
+    };
+
+    const getCount = () => {
+      let count = 0;
+      // Loop through all cart items
+      cartItems.forEach((item) => {
+        // add the quantity of the cart item to tota;
+        count = count + basket?.quantity;
+      });
+      return count;
+    };
+
     if (basket.length > 0) {
+      useEffect(() => {
+        setTotal(
+          basket?.reduce(
+            (acc, curr) => acc + Number(curr.price) * Number(curr.quantity),
+            0
+          )
+        );
+        setDiscount(
+          basket.reduce(
+            (acc, curr) => (acc + Number(curr.price) * curr.quantity) / 5,
+            0
+          )
+        );
+        setTotalAmount(Total - Discount);
+      });
       return (
         <>
           <Grid templateRows="1fr" p="1.5rem 1rem">
@@ -48,40 +121,29 @@ const CartComponent = () => {
                   <Grid
                     templateColumns=".5fr .5fr "
                     p="1rem"
-                    // alignItems="center"
-                    place
+                    h="100%"
+                    alignItems="center"
                   >
                     <GridItem>
                       <Text>
                         Deliver to: <Text>Address not selcted </Text>
                       </Text>
                     </GridItem>
-                    <GridItem justifySelf="end">
-                      <Button
-                        as="button"
-                        cursor="pointer"
-                        w="100%"
-                        p=".5rem"
-                        boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
-                        // textDecoration="underline"
-                        border="1px solid #059b5c"
-                        borderRadius=".25rem"
-                        bg="white"
-                        _hover={{
-                          bg: "#059b5c",
-                          color: "white",
-                        }}
-                      >
-                        Change
-                      </Button>
+                    <GridItem justifySelf="end" alignSelf="center">
+                      <AddressComponent />
                     </GridItem>
                   </Grid>
                 </GridItem>
                 {/* item */}
                 <GridItem>
                   {basket.map(function (item, index) {
+                    let options = [];
+
+                    for (let i = 1; i <= Math.max(item.quantity + 1, 5); i++) {
+                      options.push([i]);
+                    }
                     return (
-                      <li key={index}>
+                      <li key={item.slug}>
                         <Grid
                           templateColumns=".30fr .70fr"
                           boxShadow="inset 0 0 0 1px #e9e9eb"
@@ -126,11 +188,25 @@ const CartComponent = () => {
                                 >
                                   <Text>MRP</Text>
                                   <Box pl=".5rem ">
-                                    <Text>{item.price}</Text>
+                                    <Text>
+                                      <CurrencyFormat
+                                        decimalScale={2}
+                                        value={item.price}
+                                        displayType={"text"}
+                                        thousandSeparator={true}
+                                        prefix={"₹"}
+                                      />
+                                    </Text>
                                   </Box>
                                   <Box pl=".5rem ">
                                     <Text textDecoration="line-through">
-                                      {item.cutoffPrice}
+                                      <CurrencyFormat
+                                        decimalScale={2}
+                                        value={item.cutoffPrice}
+                                        displayType={"text"}
+                                        thousandSeparator={true}
+                                        prefix={"₹"}
+                                      />
                                     </Text>
                                   </Box>
                                   <Box pl=".5rem ">
@@ -172,29 +248,37 @@ const CartComponent = () => {
                                   </GridItem>
                                   <GridItem justifySelf="end">
                                     <Button
-                                      bg="none"
+                                      as="button"
+                                      cursor="pointer"
+                                      p=".25rem"
+                                      boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
+                                      // textDecoration="underline"
                                       border="1px solid #059b5c"
-                                      outline="none"
                                       borderRadius="50%"
-                                      onClick={() => setValue(value - 1)}
+                                      bg="white"
+                                      _hover={{
+                                        bg: "#059b5c",
+                                        color: "white",
+                                      }}
                                     >
                                       <RemoveIcon />
                                     </Button>
-
-                                    <Box as="span" w="200px" mx="24px"></Box>
+                                    <Text as="span" p=".75rem">
+                                      {item.quantity}
+                                    </Text>
                                     <Button
-                                      bg="#059b5c"
-                                      color="white"
-                                      onClick={(id) => {
-                                        return dispatch({
-                                          type: "INCREMENT_ITEM",
-                                          payload: id,
-                                          // id:item.id
-                                        });
-                                      }}
+                                      as="button"
+                                      cursor="pointer"
+                                      p=".25rem"
+                                      boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
+                                      // textDecoration="underline"
                                       border="1px solid #059b5c"
-                                      outline="none"
                                       borderRadius="50%"
+                                      bg="white"
+                                      _hover={{
+                                        bg: "#059b5c",
+                                        color: "white",
+                                      }}
                                     >
                                       <AddIcon />
                                     </Button>
@@ -235,17 +319,14 @@ const CartComponent = () => {
                         <GridItem>
                           <Text color="#059b5c">
                             <CurrencyFormat
-                              renderText={(value) => (
-                                <>
-                                  <Text>{value}</Text>
-                                </>
-                              )}
                               decimalScale={2}
-                              value={getBasketTotal(basket)}
+                              value={Total}
                               displayType={"text"}
                               thousandSeparator={true}
                               prefix={"₹"}
                             />
+
+                            {/* {console.log(Total)} */}
                           </Text>
                         </GridItem>
                       </Grid>
@@ -256,7 +337,16 @@ const CartComponent = () => {
                           <Text>Discount on MRP</Text>
                         </GridItem>
                         <GridItem>
-                          <Text color="#059b5c">on</Text>
+                          <Text color="#059b5c">
+                            {" "}
+                            <CurrencyFormat
+                              decimalScale={2}
+                              value={Discount}
+                              displayType={"text"}
+                              thousandSeparator={true}
+                              prefix={"₹"}
+                            />
+                          </Text>
                         </GridItem>
                       </Grid>
                     </GridItem>
@@ -277,7 +367,13 @@ const CartComponent = () => {
                         </Text>
 
                         <Text color="#059b5c" pl="1rem">
-                          Amount
+                          <CurrencyFormat
+                            decimalScale={2}
+                            value={TotalAmount}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            prefix={"₹"}
+                          />
                         </Text>
                       </Box>
                     </GridItem>
@@ -297,6 +393,7 @@ const CartComponent = () => {
                           bg: "#059b5c",
                           color: "white",
                         }}
+                        // onClick={PaymentIntergration}
                       >
                         Place Order
                       </Button>
@@ -314,6 +411,7 @@ const CartComponent = () => {
           <Grid templateRows="1fr">
             <GridItem textAlign="center">
               <Text as="h1">Cart is empty</Text>
+              {/* <PaymentIntergration /> */}
             </GridItem>
           </Grid>
         </>

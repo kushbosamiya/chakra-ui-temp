@@ -4,10 +4,7 @@ export const initialState = {
 
 // Selector
 export function getBasketTotal(basket) {
-  const basketTotal = basket?.reduce(
-    (initialAmount, item) => initialAmount + item.price
-  );
-  
+  basket.reduce((amount, item) => item.price + amount, 0);
 }
 
 const reducer = (state, action) => {
@@ -38,8 +35,34 @@ const reducer = (state, action) => {
         basket: newBasket,
       };
 
-    case "INCREMENT_ITEM":
-    //   we need to find out which item is clicked
+    case "CHANGE_CART_QTY":
+      return {
+        ...state,
+        basket: state.basket.filter((c) =>
+          c.slug === action.payload.id
+            ? (c.quantity = action.payload.quantity)
+            : c.quantity
+        ),
+      };
+
+    case "INCREMENT":
+      const updatedCart = state.basket.map((curElem) => {
+        if (curElem.id === action.payload) {
+          return { ...curElem, quantity: curElem.quantity + 1 };
+        }
+        return curElem;
+      });
+
+    case "DECREMENT":
+      const UpdatedCart = state.basket
+        .map((curElem) => {
+          if (curElem.id === action.payload) {
+            return { ...curElem, quantity: curElem.quantity - 1 };
+          }
+          return curElem;
+        })
+        .filter((curElem) => curElem.quantity !== 0);
+      return { ...state, item: UpdatedCart };
 
     default:
       return state;

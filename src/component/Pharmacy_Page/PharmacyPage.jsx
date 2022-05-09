@@ -50,7 +50,6 @@ const PharmacyPage = () => {
     <>
       <HeaderComponent />
       {/* medicine card */}
-
       <Grid
         templateRows="1fr"
         placeContent="center"
@@ -84,7 +83,6 @@ const PharmacyPage = () => {
           <AyurvedaSupa />
         </Grid> */}
       </Grid>
-
       {/* <Footer /> */}
     </>
   );
@@ -163,7 +161,6 @@ const SpecializationButton = () => {
             <Select
               id="country"
               placeholder="All"
-              // border="1px solid"
               border="none"
               pt=".4rem"
               textAlign="center"
@@ -188,12 +185,12 @@ const HomeoSupa = () => {
   const [Data, setData] = useState([]);
   async function fetchPosts() {
     const { data } = await supabase.from("HomeoList");
-
     let Cdata = [];
 
     for (let index = 0; index < data.length; index++) {
       Cdata = [...Cdata, data[index]];
     }
+    // fetching price amount from faker
 
     setData(Cdata);
   }
@@ -347,9 +344,6 @@ export function HeaderComponent() {
         <GridItem gridColumn="2/3">
           <SearchBar />
         </GridItem>
-        {/* <GridItem placeSelf="center">
-          <Cart />
-        </GridItem> */}
       </Grid>
 
       {/* sort buttons  */}

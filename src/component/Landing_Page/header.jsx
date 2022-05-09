@@ -17,6 +17,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 // importing pages
+import PaymentIntergration from "../Pharmacy_Page/Frontend/PaymentIntergration";
 
 // import "./src/styles.css"
 
@@ -154,9 +155,9 @@ const Logo_Component = () => {
           cursor="pointer"
         >
           <NavHashLink to="/">
-            <Text fontWeight="800" fontSize="1.5rem" color="#059b5c">
-              • Swasthya Setu •
-            </Text>
+          <Text fontWeight="800" fontSize="1.5rem" color="#059b5c" oncl>
+            • Swasthya Setu •
+          </Text>
           </NavHashLink>
         </GridItem>
       </Grid>
