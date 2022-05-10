@@ -4,10 +4,11 @@ import {
   Grid,
   GridItem,
   Box,
+  Text,
+  Image, 
   useRadioGroup,
   useRadio,
   HStack,
-
 } from "@chakra-ui/react";
 import MaleIcon from "../Assets/ConsultSection/Male.svg";
 import FemaleIcon from "../Assets/ConsultSection/Female.svg";
@@ -16,7 +17,7 @@ const ConsultSection = () => {
   return (
     <>
       <Box p="1rem" border="1px solid">
-        <GenderSection />
+        <InternalComponent />
       </Box>
     </>
   );
@@ -24,92 +25,65 @@ const ConsultSection = () => {
 
 export default ConsultSection;
 
-const GenderSection = () => {
-  
+// it includes all the grids and its content
+const InternalComponent = () => {
+  let InternalData = [
+    {
+      title: "STEP 1/4",
+      headline: "Please select your gender :",
+    },
+    // {
+    //   title: "STEP 2/4",
+    //   headline: "How old are you?",
+    // },
+    // {
+    //   title: "STEP 3/4",
+    //   headline: "Add your symptoms ",
+    // },
+    // {
+    //   title: "STEP 4/4",
+    //   headline: "How long have you had your problem ?",
+    // },
+  ];
   return (
     <>
-      <Grid templateRows="10% 10% 60% 20%" placeItems="center" gap=".5rem">
-        <GridItem color="#8c8c8c" border="1px solid">
-          STEP 1/4
-        </GridItem>
-        <GridItem fontWeight="700" border="1px solid" fontSize="1.5rem">
-          Please Select your gender :
-        </GridItem>
-        {/* toggle buttons */}
-
-        <GridItem>
-         <Example />
-        </GridItem>
-      </Grid>
+      {InternalData.map(function (data, index) {
+        return (
+          <>
+            <li key={index}>
+              <Grid templateRows="repeat(4,1fr)" placeItems="center">
+                <GridItem>
+                  <Box>
+                    <Text color="#8c8c8c" fontWeight="400">
+                      {data.title}
+                    </Text>
+                  </Box>
+                </GridItem>
+                <GridItem pt=".5rem">
+                  {/* @headline */}
+                  <Text fontWeight="600" fontSize="1.5rem">
+                    {data.headline}
+                  </Text>
+                </GridItem>
+                <GridItem p="1rem">
+                  {/* @gender selction */}
+                  <Grid templateColumns=".5fr .5fr">
+                    <GridItem>
+                      {/* Male */}
+                      <Image src={MaleIcon} h="180px" alt="MaleIcon" />
+                    </GridItem>
+                    <GridItem>
+                      {/* Female */}
+                      <Image src={FemaleIcon} h="180px" alt="FemaleIcon" />
+                    </GridItem>
+                  </Grid>
+                </GridItem>
+                {/* <GridItem>@btns</GridItem> */}
+              </Grid>
+            </li>
+          </>
+        );
+      })}
     </>
   );
 };
-function Example() {
-  const options = [
-    // {
-    //   id: '1',
-    //   Gender: 'Male',
-    //   ImgUrl:'./Assets/ConsultSection/Male.svg'
-    // },
-    // {
-    //   id: '2',
-    //   Gender: 'Female',
-    //   ImgUrl:'./Assets/ConsultSection/Female.svg'
-    // }
-    'react', 'vue', 'svelte'
-  ]
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name: 'framework',
-    defaultValue: 'react',
-    onChange: console.log,
-  })
-
-  const group = getRootProps()
-
-  return (
-    <HStack {...group}>
-      {options.map((value) => {
-        
-        {/* const {Gender,ImgUrl} = value; */}
-        const radio = getRadioProps({ value })
-        return (
-          <RadioCard key={value.id} {...radio}>
-            {/* {Gender}
-            <Image src={ImgUrl} /> */}
-            {value}
-          </RadioCard>
-        )
-      })}
-    </HStack>
-  )
-}
-function RadioCard(props) {
-  const { getInputProps, getCheckboxProps } = useRadio(props)
-
-  const input = getInputProps()
-  const checkbox = getCheckboxProps()
-
-  return (
-    <Box as='label'>
-      <input {...input} />
-      <Box
-        {...checkbox}
-        cursor='pointer'
-        border='1px solid'
-        
-        _checked={{
-          bg: 'grey',
-          color: 'white',
-          borderColor: 'pink',
-        }}
-        _focus={{
-          boxShadow: 'outline',
-        }}
-        px={5}
-        py={3}
-      >
-        {props.children}
-      </Box>
-    </Box>
-  )
-}

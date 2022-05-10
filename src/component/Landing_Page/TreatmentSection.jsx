@@ -7,6 +7,8 @@ import ChildIcon from "../Assets/TreatmentSection/new_treatment_icon-4.svg";
 // import Labtest from "./Assets/TreatmentSection/new_treatment_icon-5.svg";
 import WashBottle from "../Assets/TreatmentSection/new_treatment_icon-5.svg";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import ArrowRight from "../Assets/DiseaseSection/arrow-right.svg";
+import { Link } from "react-router-dom";
 
 // consult section ma left align krva nu chhe ane aakho regular arrow nakhva nu chhe
 const TreatmentSection = () => {
@@ -16,7 +18,7 @@ const TreatmentSection = () => {
         templateRows="1fr"
         p="1rem"
         id="treatmentsection"
-        // bg="#e9f8f3"
+        // bg="#e9f8f3" h="80%" w="80%"
       >
         {/* <AllopathicTreatment /> */}
         <Treatments />
@@ -31,50 +33,82 @@ const Treatments = () => {
   return (
     <>
       <Grid
-        templateColumns=".5fr .5fr .5fr .5fr .5fr"
+        templateColumns="repeat(4,300px)"
+        justifyContent="space-around"
         columnGap="2rem"
-        p="1rem"
+        p=".5rem"
       >
         {/* 1st component allopathic treatment */}
         <TreatmentProps
-          title={<Text>Allopathy</Text>}
-          imgsrc={<Image src={AllopathicIcon} />}
+          title={
+            <Link to="allopathy">
+              <Text color="black" cursor="pointer">
+                Allopathy
+              </Text>
+            </Link>
+          }
+          imgsrc={<Image h="80%" w="80%" src={AllopathicIcon} />}
           description={
             <Box>
-              <Text>Make an instant Appointment </Text>
-              <Text>with Allopath Doctor</Text>
+              <Text>Make an instant Appointment with Allopath Doctor </Text>
             </Box>
           }
           singleicon={
-            <Box textAlign="center">
-              <Text>
-                Consult Now <ChevronRightIcon color="#059b5c" />{" "}
-              </Text>
-            </Box>
+            <Grid templateRows="1fr" justifyItems="end" pt=".5rem">
+              <GridItem>
+                <Link to="allopathy">
+                  <Box d="inline-flex" alignItems="center" cursor="pointer">
+                    <Text pr=".5rem" color="black">
+                      Consult Now
+                    </Text>
+                    <Image src={ArrowRight} w="20px" h="20px" />
+                  </Box>
+                </Link>
+              </GridItem>
+            </Grid>
           }
         />
         {/* 2nd componenent Homeopathy treatment homeopathy */}
         <TreatmentProps
-          title={<Text>Homeopathy</Text>}
-          imgsrc={<Image src={HomeopathyIcon} />}
+          title={
+            <Link to="homeopathy">
+              <Text cursor="pointer" color="black">
+                Homeopathy
+              </Text>
+            </Link>
+          }
+          imgsrc={<Image h="80%" w="80%" src={HomeopathyIcon} />}
           description={
             <Box>
-              <Text>Make an instant Appointment </Text>
-              <Text>with Homeopath Doctor</Text>
+              <Text>Make an instant Appointment with Homeopath Doctor </Text>
+              {/* <Text>with Homeopath Doctor</Text> */}
             </Box>
           }
           singleicon={
-            <Box textAlign="center">
-              <Text>
-                Consult Now <ChevronRightIcon color="#059b5c" />{" "}
-              </Text>
-            </Box>
+            <Grid templateRows="1fr" justifyItems="end" pt=".5rem">
+              <GridItem>
+                <Link to="homeopathy">
+                  <Box d="inline-flex" alignItems="center" cursor="pointer">
+                    <Text pr=".5rem" color="black">
+                      Consult Now
+                    </Text>
+                    <Image src={ArrowRight} w="20px" h="20px" />
+                  </Box>
+                </Link>
+              </GridItem>
+            </Grid>
           }
         />
         {/* 3rd component ayurveda */}
         <TreatmentProps
-          title={<Text>Ayurvedic</Text>}
-          imgsrc={<Image src={AyurvedicIcon} />}
+          title={
+            <Link to="ayurveda">
+              <Text cursor="pointer" color="black">
+                Ayurveda
+              </Text>
+            </Link>
+          }
+          imgsrc={<Image h="80%" w="80%" src={AyurvedicIcon} />}
           description={
             <Box>
               <Text>Make an instant Appointment </Text>
@@ -82,16 +116,29 @@ const Treatments = () => {
             </Box>
           }
           singleicon={
-            <Box>
-              <Text textAlign="center">
-                Consult Now <ChevronRightIcon color="#059b5c" />{" "}
-              </Text>
-            </Box>
+            <Grid templateRows="1fr" justifyItems="end" pt=".5rem">
+              <GridItem>
+                <Link to="ayurveda">
+                  <Box d="inline-flex" alignItems="center" cursor="pointer">
+                    <Text pr=".5rem" color="black">
+                      Consult Now
+                    </Text>
+                    <Image src={ArrowRight} w="20px" h="20px" />
+                  </Box>
+                </Link>
+              </GridItem>
+            </Grid>
           }
         />
         <TreatmentProps
-          title={<Text>Child Care</Text>}
-          imgsrc={<Image src={ChildIcon} />}
+          title={
+            <Link to="childcare">
+              <Text cursor="pointer" color="black">
+                Child Care
+              </Text>
+            </Link>
+          }
+          imgsrc={<Image h="80%" w="80%" src={ChildIcon} />}
           description={
             <Box>
               <Text>Make an instant Appointment </Text>
@@ -99,29 +146,18 @@ const Treatments = () => {
             </Box>
           }
           singleicon={
-            <Box>
-              <Text textAlign="center">
-                Consult Now <ChevronRightIcon color="#059b5c" />{" "}
-              </Text>
-            </Box>
-          }
-        />
-
-        <TreatmentProps
-          title={<Text>Covid Care</Text>}
-          imgsrc={<Image src={WashBottle} />}
-          description={
-            <Box>
-              <Text>Make an instant Appointment </Text>
-              <Text>with Covid related diseases</Text>
-            </Box>
-          }
-          singleicon={
-            <Box>
-              <Text textAlign="center">
-                Consult Now <ChevronRightIcon color="#059b5c" />{" "}
-              </Text>
-            </Box>
+            <Grid templateRows="1fr" justifyItems="end" pt=".5rem">
+              <GridItem>
+                <Link to="childcare">
+                  <Box d="inline-flex" alignItems="center" cursor="pointer">
+                    <Text pr=".5rem" color="black">
+                      Consult Now
+                    </Text>
+                    <Image src={ArrowRight} w="20px" h="20px" />
+                  </Box>
+                </Link>
+              </GridItem>
+            </Grid>
           }
         />
       </Grid>
@@ -163,7 +199,7 @@ const TreatmentProps = ({ imgsrc, title, description, singleicon }) => {
 
         {/* consult icon */}
 
-        <GridItem alignSelf="center">{singleicon}</GridItem>
+        <GridItem>{singleicon}</GridItem>
 
         {/*  */}
       </Grid>

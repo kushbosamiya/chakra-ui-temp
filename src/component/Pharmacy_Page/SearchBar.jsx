@@ -10,7 +10,7 @@ import { IoChevronDownSharp } from "react-icons/io/";
 
 import SearchIcon from "../Assets/PharmacyPage/SearchIcon_2.svg";
 
-const SearchBar = () => {
+export const SearchBar = () => {
   return (
     <>
       <Box d="flex">

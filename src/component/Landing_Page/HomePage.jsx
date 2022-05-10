@@ -8,6 +8,7 @@ import DiseaseSection from "./DiseaseSection";
 import BlogHeadline from "./BlogHeadline";
 import BlogSection from "./BlogSection";
 import Divider from "@mui/material/Divider";
+import ConsultSection from "./ConsultSection";
 // import ".../src/styles.css";
 
 import Footer from "./FooterSection";
@@ -22,7 +23,9 @@ const HomePage = () => {
       <Divider>
         <TreatmentHeadline />
       </Divider>
+
       <TreatmentSection />
+
       <Divider>
         <DiseaseHeadline />
       </Divider>
