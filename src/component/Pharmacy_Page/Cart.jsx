@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useStateValue } from "../context/StateProvider";
 import { getBasketTotal } from "../context/reducer";
 import { supabase } from "../client";
-import PaymentIntergration from "./Frontend/PaymentIntergration";
+// import PaymentIntergration from "./Frontend/PaymentIntergration";
 
 // import module for currency
 
@@ -337,7 +337,7 @@ const CartComponent = () => {
                           <Text>Discount on MRP</Text>
                         </GridItem>
                         <GridItem>
-                          <Text color="#059b5c">
+                          <Text color="red">
                             {" "}
                             <CurrencyFormat
                               decimalScale={2}

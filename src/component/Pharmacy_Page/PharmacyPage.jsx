@@ -186,8 +186,9 @@ const HomeoSupa = () => {
   async function fetchPosts() {
     const { data } = await supabase.from("HomeoList");
     let Cdata = [];
+    
 
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < 10; index++) {
       Cdata = [...Cdata, data[index]];
     }
     // fetching price amount from faker

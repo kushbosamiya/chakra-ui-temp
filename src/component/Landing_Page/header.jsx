@@ -17,7 +17,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 // importing pages
-import PaymentIntergration from "../Pharmacy_Page/Frontend/PaymentIntergration";
+// import PaymentIntergration from "../Pharmacy_Page/Frontend/PaymentIntergration";
 
 // import "./src/styles.css"
 
